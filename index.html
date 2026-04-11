@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblingo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone">
+        <div class="roblingo">
+            <div class="dynamic-island"></div>
+
+            <section class="screen active" id="homeScreen">
+                <header class="app-header">
+                    <p class="for-her">For Marina</p>
+                    <h1>Roblingo</h1>
+                    <p>British Accent Practice</p>
+
+                    <div class="streak-box">
+                        <span>🔥</span>
+                        <span id="streakCount">0</span>
+                        <span>day streak</span>
+                    </div>
+                </header>
+
+                <main class="lesson-list">
+                    <button class="lesson-card unlocked" id="lesson1Btn" type="button">
+                        <span class="lesson-number">1</span>
+                        <div class="lesson-text">
+                            <strong>Lesson 1</strong>
+                            <p>water / Water</p>
+                        </div>
+                    </button>
+
+                    <button class="lesson-card locked" id="lesson2Btn" type="button" disabled>
+                        <span class="lesson-number">2</span>
+                        <div class="lesson-text">
+                            <strong>Lesson 2</strong>
+                            <p id="lesson2Text">Locked</p>
+                        </div>
+                    </button>
+
+                    <button class="lesson-card locked" id="lesson3Btn" type="button" disabled>
+                        <span class="lesson-number">3</span>
+                        <div class="lesson-text">
+                            <strong>Lesson 3</strong>
+                            <p>Soon</p>
+                        </div>
+                    </button>
+                </main>
+            </section>
+
+            <section class="screen" id="lesson1Screen">
+                <div class="top-row">
+                    <button class="icon-btn" id="backBtn1" type="button">←</button>
+                </div>
+
+                <div class="lesson-body">
+                    <p class="lesson-tag">Lesson 1</p>
+                    <h2 class="main-word">Water</h2>
+                    <p class="subtext">Compare the casual and polite pronunciation.</p>
+
+                    <div class="audio-buttons">
+                        <button class="audio-btn" id="waterCasualBtn" type="button">
+                            <span class="audio-title">🔊 Casual</span>
+                            <span class="audio-note">water</span>
+                        </button>
+
+                        <button class="audio-btn" id="waterPoliteBtn" type="button">
+                            <span class="audio-title">🔊 Polite</span>
+                            <span class="audio-note">Water</span>
+                        </button>
+                    </div>
+
+                    <button class="mic-btn" id="micBtn1" type="button">🎤 Tap to Speak</button>
+
+                    <p class="recording-status" id="recordingStatus1">
+                        Tap a pronunciation, then record yourself.
+                    </p>
+
+                    <div id="recordingPlayerWrap1" class="recording-player-wrap"></div>
+
+                    <button class="complete-btn" id="completeBtn1" type="button">Complete Lesson</button>
+                </div>
+            </section>
+
+            <section class="screen" id="lesson2Screen">
+                <div class="top-row">
+                    <button class="icon-btn" id="backBtn2" type="button">←</button>
+                </div>
+
+                <div class="lesson-body">
+                    <p class="lesson-tag">Lesson 2</p>
+                    <h2 class="main-word">Bottle</h2>
+                    <p class="subtext">Compare the casual and polite pronunciation.</p>
+
+                    <div class="audio-buttons">
+                        <button class="audio-btn" id="bottleCasualBtn" type="button">
+                            <span class="audio-title">🔊 Casual</span>
+                            <span class="audio-note">bottle</span>
+                        </button>
+
+                        <button class="audio-btn" id="bottlePoliteBtn" type="button">
+                            <span class="audio-title">🔊 Polite</span>
+                            <span class="audio-note">Bottle</span>
+                        </button>
+                    </div>
+
+                    <button class="mic-btn" id="micBtn2" type="button">🎤 Tap to Speak</button>
+
+                    <p class="recording-status" id="recordingStatus2">
+                        Tap a pronunciation, then record yourself.
+                    </p>
+
+                    <div id="recordingPlayerWrap2" class="recording-player-wrap"></div>
+
+                    <button class="complete-btn" id="completeBtn2" type="button">Complete Lesson</button>
+                </div>
+            </section>
+
+            <div class="success-overlay" id="successOverlay">
+                <div class="success-card">
+                    <div class="success-icon">✓</div>
+                    <h3 id="successTitle">Nice one</h3>
+                    <p id="successText">Lesson complete</p>
+                </div>
+            </div>
+
+            <div class="home-bar"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
