@@ -1,49 +1,298 @@
 const homeScreen = document.getElementById("homeScreen");
-const lesson1Screen = document.getElementById("lesson1Screen");
-const lesson2Screen = document.getElementById("lesson2Screen");
+const lessonScreen = document.getElementById("lessonScreen");
+const lessonList = document.getElementById("lessonList");
 
-const lesson1Btn = document.getElementById("lesson1Btn");
-const lesson2Btn = document.getElementById("lesson2Btn");
-const lesson2Text = document.getElementById("lesson2Text");
+const backBtn = document.getElementById("backBtn");
+const casualBtn = document.getElementById("casualBtn");
+const politeBtn = document.getElementById("politeBtn");
+const micBtn = document.getElementById("micBtn");
+const completeBtn = document.getElementById("completeBtn");
 
-const backBtn1 = document.getElementById("backBtn1");
-const backBtn2 = document.getElementById("backBtn2");
+const lessonTag = document.getElementById("lessonTag");
+const mainWord = document.getElementById("mainWord");
+const lessonSubtext = document.getElementById("lessonSubtext");
+const casualNote = document.getElementById("casualNote");
+const politeNote = document.getElementById("politeNote");
 
-const waterCasualBtn = document.getElementById("waterCasualBtn");
-const waterPoliteBtn = document.getElementById("waterPoliteBtn");
-const bottleCasualBtn = document.getElementById("bottleCasualBtn");
-const bottlePoliteBtn = document.getElementById("bottlePoliteBtn");
-
-const micBtn1 = document.getElementById("micBtn1");
-const micBtn2 = document.getElementById("micBtn2");
-
-const completeBtn1 = document.getElementById("completeBtn1");
-const completeBtn2 = document.getElementById("completeBtn2");
-
-const recordingStatus1 = document.getElementById("recordingStatus1");
-const recordingStatus2 = document.getElementById("recordingStatus2");
-
-const recordingPlayerWrap1 = document.getElementById("recordingPlayerWrap1");
-const recordingPlayerWrap2 = document.getElementById("recordingPlayerWrap2");
+const recordingStatus = document.getElementById("recordingStatus");
+const recordingPlayerWrap = document.getElementById("recordingPlayerWrap");
 
 const successOverlay = document.getElementById("successOverlay");
 const successTitle = document.getElementById("successTitle");
 const successText = document.getElementById("successText");
+const successParrot = document.getElementById("successParrot");
+
 const streakCount = document.getElementById("streakCount");
+const xpText = document.getElementById("xpText");
+const xpFill = document.getElementById("xpFill");
+
+const parrotMascot = document.getElementById("parrotMascot");
+
+const XP_PER_LESSON = 10;
+const XP_BAR_MAX = 100;
+
+const lessons = [
+    {
+        id: 1,
+        title: "Lesson 1",
+        word: "Water",
+        casual: "water",
+        polite: "Water",
+        casualAudio: "./audio/water-casual.m4a",
+        politeAudio: "./audio/water-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 2,
+        title: "Lesson 2",
+        word: "Bottle",
+        casual: "bottle",
+        polite: "Bottle",
+        casualAudio: "./audio/bottle-casual.m4a",
+        politeAudio: "./audio/bottle-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 3,
+        title: "Lesson 3",
+        word: "Better",
+        casual: "better",
+        polite: "Better",
+        casualAudio: "./audio/better-casual.m4a",
+        politeAudio: "./audio/better-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 4,
+        title: "Lesson 4",
+        word: "City",
+        casual: "city",
+        polite: "City",
+        casualAudio: "./audio/city-causal.m4a",
+        politeAudio: "./audio/city-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 5,
+        title: "Lesson 5",
+        word: "Letter",
+        casual: "letter",
+        polite: "Letter",
+        casualAudio: "./audio/letter-causal.m4a",
+        politeAudio: "./audio/letter-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 6,
+        title: "Lesson 6",
+        word: "Party",
+        casual: "party",
+        polite: "Party",
+        casualAudio: "./audio/party-casual.m4a",
+        politeAudio: "./audio/party-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 7,
+        title: "Lesson 7",
+        word: "Meeting",
+        casual: "meeting",
+        polite: "Meeting",
+        casualAudio: "./audio/meeting-casual.m4a",
+        politeAudio: "./audio/meeting-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 8,
+        title: "Lesson 8",
+        word: "Chocolate",
+        casual: "chocolate",
+        polite: "Chocolate",
+        casualAudio: "./audio/chocolate-casual.m4a",
+        politeAudio: "./audio/chocolate-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 9,
+        title: "Lesson 9",
+        word: "Morning",
+        casual: "morning",
+        polite: "Morning",
+        casualAudio: "./audio/morning-casual.m4a",
+        politeAudio: "./audio/morning-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 10,
+        title: "Lesson 10",
+        word: "Tuesday",
+        casual: "tuesday",
+        polite: "Tuesday",
+        casualAudio: "./audio/tuesday-casual.m4a",
+        politeAudio: "./audio/tuesday-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 11,
+        title: "Lesson 11",
+        word: "Little",
+        casual: "little",
+        polite: "Little",
+        casualAudio: "./audio/little-casual.m4a",
+        politeAudio: "./audio/little-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 12,
+        title: "Lesson 12",
+        word: "Table",
+        casual: "table",
+        polite: "Table",
+        casualAudio: "./audio/table-casual.m4a",
+        politeAudio: "./audio/table-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 13,
+        title: "Lesson 13",
+        word: "Family",
+        casual: "family",
+        polite: "Family",
+        casualAudio: "./audio/family-casual.m4a",
+        politeAudio: "./audio/family-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 14,
+        title: "Lesson 14",
+        word: "Window",
+        casual: "Window",
+        polite: "",
+        casualAudio: "./audio/window.m4a",
+        politeAudio: "",
+        soon: false,
+        singlePronunciation: true,
+        singleText: "just one pronunciation for window :)"
+    },
+    {
+        id: 15,
+        title: "Lesson 15",
+        word: "Again",
+        casual: "again",
+        polite: "Again",
+        casualAudio: "./audio/again-casual.m4a",
+        politeAudio: "./audio/again-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 16,
+        title: "Lesson 16",
+        word: "Office",
+        casual: "Office",
+        polite: "",
+        casualAudio: "./audio/office.m4a",
+        politeAudio: "",
+        soon: false,
+        singlePronunciation: true,
+        singleText: "just one pronunciation for office :)"
+    },
+    {
+        id: 17,
+        title: "Lesson 17",
+        word: "Question",
+        casual: "Question",
+        polite: "",
+        casualAudio: "./audio/question.m4a",
+        politeAudio: "",
+        soon: false,
+        singlePronunciation: true,
+        singleText: "just one pronunciation for question :)"
+    },
+    {
+        id: 18,
+        title: "Lesson 18",
+        word: "Teacher",
+        casual: "teacher",
+        polite: "Teacher",
+        casualAudio: "./audio/teacher-casual.m4a",
+        politeAudio: "./audio/teacher-polite.m4a",
+        soon: false,
+        singlePronunciation: false
+    },
+    {
+        id: 19,
+        title: "Lesson 19",
+        word: "Problem",
+        casual: "Problem",
+        polite: "",
+        casualAudio: "./audio/problem.m4a",
+        politeAudio: "",
+        soon: false,
+        singlePronunciation: true,
+        singleText: "just one pronunciation for problem :)"
+    },
+    {
+        id: 20,
+        title: "Lesson 20",
+        word: "Pardon",
+        casual: "Pardon",
+        polite: "",
+        casualAudio: "./audio/pardon.m4a",
+        politeAudio: "",
+        soon: false,
+        singlePronunciation: true,
+        singleText: "just one pronunciation for pardon :)"
+    },
+    {
+        id: 21,
+        title: "Lesson 21",
+        word: "Coming Soon",
+        casual: "",
+        polite: "",
+        casualAudio: "",
+        politeAudio: "",
+        soon: true,
+        singlePronunciation: false
+    }
+];
+
+let currentLesson = null;
 
 let currentRecorder = null;
 let currentStream = null;
 let currentAudioChunks = [];
 let isRecording = false;
-let activeMicButton = null;
-let activeStatus = null;
-let activeWrap = null;
 
 function showScreen(screenToShow) {
-    [homeScreen, lesson1Screen, lesson2Screen].forEach((screen) => {
+    [homeScreen, lessonScreen].forEach((screen) => {
         screen.classList.remove("active");
     });
     screenToShow.classList.add("active");
+}
+
+function getStoredXP() {
+    return Number(localStorage.getItem("roblingo_xp")) || 0;
+}
+
+function updateXPUI() {
+    const xp = getStoredXP();
+    const currentBarXP = xp % XP_BAR_MAX;
+    xpText.textContent = `${currentBarXP} / ${XP_BAR_MAX}`;
+    xpFill.style.width = `${(currentBarXP / XP_BAR_MAX) * 100}%`;
 }
 
 function updateStreakUI() {
@@ -57,25 +306,101 @@ function animateUnlock(button) {
     button.classList.add("just-unlocked");
 }
 
-function updateLessonLocks() {
-    const lesson1Complete = localStorage.getItem("roblingo_lesson_1_complete") === "true";
-    const lesson2AlreadyUnlocked = !lesson2Btn.disabled;
+function animateParrotBounce() {
+    if (!parrotMascot) return;
+    parrotMascot.classList.remove("happy");
+    void parrotMascot.offsetWidth;
+    parrotMascot.classList.add("happy");
+}
 
-    if (lesson1Complete) {
-        lesson2Btn.disabled = false;
-        lesson2Btn.classList.remove("locked");
-        lesson2Btn.classList.add("unlocked");
-        lesson2Text.textContent = "bottle / Bottle";
+function animateParrotWiggle() {
+    if (!parrotMascot) return;
+    parrotMascot.classList.remove("wiggle");
+    void parrotMascot.offsetWidth;
+    parrotMascot.classList.add("wiggle");
+}
 
-        if (!lesson2AlreadyUnlocked) {
-            animateUnlock(lesson2Btn);
+function animateSuccessParrot() {
+    if (!successParrot) return;
+    successParrot.classList.remove("bounce");
+    void successParrot.offsetWidth;
+    successParrot.classList.add("bounce");
+}
+
+function stopSuccessParrot() {
+    if (!successParrot) return;
+    successParrot.classList.remove("bounce");
+}
+
+function isLessonComplete(lessonId) {
+    return localStorage.getItem(`roblingo_lesson_${lessonId}_complete`) === "true";
+}
+
+function isLessonUnlocked(lessonId) {
+    if (lessonId === 1) return true;
+    return isLessonComplete(lessonId - 1);
+}
+
+function getLessonSubtitle(lesson) {
+    if (lesson.soon) return "Coming soon";
+    if (!isLessonUnlocked(lesson.id)) return "Locked";
+    if (lesson.singlePronunciation) return lesson.singleText;
+    return `${lesson.casual} / ${lesson.polite}`;
+}
+
+function renderLessons(previousUnlockedSet = new Set()) {
+    lessonList.innerHTML = "";
+
+    lessons.forEach((lesson) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "lesson-card";
+
+        const complete = isLessonComplete(lesson.id);
+        const unlocked = isLessonUnlocked(lesson.id);
+
+        if (lesson.soon) {
+            button.classList.add("coming-soon");
+            button.disabled = true;
+        } else if (!unlocked) {
+            button.classList.add("locked");
+            button.disabled = true;
+        } else if (complete) {
+            button.classList.add("completed", "unlocked");
+        } else {
+            button.classList.add("unlocked");
         }
-    } else {
-        lesson2Btn.disabled = true;
-        lesson2Btn.classList.add("locked");
-        lesson2Btn.classList.remove("unlocked");
-        lesson2Text.textContent = "Locked";
-    }
+
+        button.innerHTML = `
+            <span class="lesson-number">${lesson.id}</span>
+            <div class="lesson-text">
+                <strong>${lesson.title}</strong>
+                <p>${getLessonSubtitle(lesson)}</p>
+            </div>
+        `;
+
+        if (!lesson.soon && unlocked) {
+            button.addEventListener("click", () => openLesson(lesson.id));
+        }
+
+        lessonList.appendChild(button);
+
+        if (!previousUnlockedSet.has(lesson.id) && unlocked && lesson.id !== 1 && !lesson.soon) {
+            animateUnlock(button);
+        }
+    });
+}
+
+function getUnlockedLessonIds() {
+    const unlockedIds = new Set();
+
+    lessons.forEach((lesson) => {
+        if (!lesson.soon && isLessonUnlocked(lesson.id)) {
+            unlockedIds.add(lesson.id);
+        }
+    });
+
+    return unlockedIds;
 }
 
 function stopCurrentStream() {
@@ -108,18 +433,31 @@ function saveLessonCompletion(lessonNumber) {
     localStorage.setItem("roblingo_streak", String(streak));
     localStorage.setItem(`roblingo_lesson_${lessonNumber}_complete`, "true");
 
+    if (!localStorage.getItem(`roblingo_lesson_${lessonNumber}_xp_awarded`)) {
+        const currentXP = getStoredXP();
+        localStorage.setItem("roblingo_xp", String(currentXP + XP_PER_LESSON));
+        localStorage.setItem(`roblingo_lesson_${lessonNumber}_xp_awarded`, "true");
+    }
+
     updateStreakUI();
-    updateLessonLocks();
+    updateXPUI();
 }
 
-function showSuccess(title, text, nextScreen = homeScreen) {
+function showSuccess(title, text, nextScreen = homeScreen, previousUnlockedSet = new Set()) {
     successTitle.textContent = title;
     successText.textContent = text;
     successOverlay.classList.add("show");
+    animateSuccessParrot();
 
     setTimeout(() => {
         successOverlay.classList.remove("show");
+        stopSuccessParrot();
         showScreen(nextScreen);
+        renderLessons(previousUnlockedSet);
+
+        setTimeout(() => {
+            animateParrotBounce();
+        }, 100);
     }, 1500);
 }
 
@@ -137,6 +475,11 @@ function markButtonPlaying(button, audio) {
 }
 
 function playAudio(path, statusEl, label, button) {
+    if (!path) {
+        statusEl.textContent = "Audio not added yet.";
+        return;
+    }
+
     const audio = new Audio(path);
 
     audio.onloadeddata = () => {
@@ -152,14 +495,17 @@ function playAudio(path, statusEl, label, button) {
         statusEl.textContent = `${label} finished.`;
     };
 
-    audio.play().then(() => {
-        if (button) {
-            markButtonPlaying(button, audio);
-        }
-    }).catch((error) => {
-        statusEl.textContent = `Could not play ${path}`;
-        console.error("Could not play:", path, error);
-    });
+    audio.play()
+        .then(() => {
+            if (button) {
+                markButtonPlaying(button, audio);
+            }
+            animateParrotWiggle();
+        })
+        .catch((error) => {
+            statusEl.textContent = `Could not play ${path}`;
+            console.error("Could not play:", path, error);
+        });
 }
 
 function showCheckingThenResult(statusEl) {
@@ -184,10 +530,6 @@ async function handleRecording(micButton, statusEl, wrapEl) {
             currentRecorder = new MediaRecorder(currentStream);
             currentAudioChunks = [];
 
-            activeMicButton = micButton;
-            activeStatus = statusEl;
-            activeWrap = wrapEl;
-
             currentRecorder.ondataavailable = (event) => {
                 if (event.data.size > 0) {
                     currentAudioChunks.push(event.data);
@@ -196,8 +538,8 @@ async function handleRecording(micButton, statusEl, wrapEl) {
 
             currentRecorder.onstop = () => {
                 isRecording = false;
-                activeMicButton.classList.remove("recording");
-                activeMicButton.textContent = "🎤 Tap to Speak";
+                micButton.classList.remove("recording");
+                micButton.textContent = "🎤 Tap to Speak";
 
                 const audioBlob = new Blob(currentAudioChunks, { type: "audio/mp4" });
                 const audioUrl = URL.createObjectURL(audioBlob);
@@ -206,11 +548,11 @@ async function handleRecording(micButton, statusEl, wrapEl) {
                 player.controls = true;
                 player.src = audioUrl;
 
-                activeWrap.innerHTML = "";
-                activeWrap.appendChild(player);
+                wrapEl.innerHTML = "";
+                wrapEl.appendChild(player);
 
                 stopCurrentStream();
-                showCheckingThenResult(activeStatus);
+                showCheckingThenResult(statusEl);
             };
 
             currentRecorder.start();
@@ -228,54 +570,108 @@ async function handleRecording(micButton, statusEl, wrapEl) {
     }
 }
 
-lesson1Btn.addEventListener("click", () => showScreen(lesson1Screen));
+function updateLessonButtonsForMode(lesson) {
+    if (lesson.singlePronunciation) {
+        casualBtn.style.display = "flex";
+        politeBtn.style.display = "none";
 
-lesson2Btn.addEventListener("click", () => {
-    if (!lesson2Btn.disabled) {
-        showScreen(lesson2Screen);
+        casualBtn.querySelector(".audio-title").textContent = "🔊 Listen";
+        casualNote.textContent = lesson.word;
+    } else {
+        casualBtn.style.display = "flex";
+        politeBtn.style.display = "flex";
+
+        casualBtn.querySelector(".audio-title").textContent = "🔊 Casual";
+        politeBtn.querySelector(".audio-title").textContent = "🔊 Polite";
+
+        casualNote.textContent = lesson.casual;
+        politeNote.textContent = lesson.polite;
+    }
+}
+
+function openLesson(lessonId) {
+    const lesson = lessons.find((item) => item.id === lessonId);
+
+    if (!lesson || lesson.soon) return;
+
+    currentLesson = lesson;
+
+    lessonTag.textContent = lesson.title;
+    mainWord.textContent = lesson.word;
+    lessonSubtext.textContent = lesson.singlePronunciation
+        ? lesson.singleText
+        : "Compare the casual and polite pronunciation.";
+
+    updateLessonButtonsForMode(lesson);
+
+    recordingStatus.textContent = "Tap a pronunciation, then record yourself.";
+    recordingPlayerWrap.innerHTML = "";
+    micBtn.classList.remove("recording");
+    micBtn.textContent = "🎤 Tap to Speak";
+
+    showScreen(lessonScreen);
+}
+
+backBtn.addEventListener("click", () => {
+    showScreen(homeScreen);
+});
+
+casualBtn.addEventListener("click", () => {
+    if (!currentLesson) return;
+
+    const label = currentLesson.singlePronunciation ? "audio" : "casual audio";
+    playAudio(currentLesson.casualAudio, recordingStatus, label, casualBtn);
+});
+
+politeBtn.addEventListener("click", () => {
+    if (!currentLesson || currentLesson.singlePronunciation) return;
+    playAudio(currentLesson.politeAudio, recordingStatus, "polite audio", politeBtn);
+});
+
+micBtn.addEventListener("click", () => {
+    handleRecording(micBtn, recordingStatus, recordingPlayerWrap);
+});
+
+completeBtn.addEventListener("click", () => {
+    if (!currentLesson) return;
+
+    const previousUnlockedSet = getUnlockedLessonIds();
+
+    saveLessonCompletion(currentLesson.id);
+
+    const nextLesson = lessons.find(
+        (lesson) => lesson.id === currentLesson.id + 1 && !lesson.soon
+    );
+
+    if (nextLesson) {
+        showSuccess("Nice one", `${currentLesson.title} complete`, homeScreen, previousUnlockedSet);
+    } else {
+        showSuccess("Brilliant", "You finished all available lessons", homeScreen, previousUnlockedSet);
     }
 });
 
-backBtn1.addEventListener("click", () => showScreen(homeScreen));
-backBtn2.addEventListener("click", () => showScreen(homeScreen));
+function seedStartingProgress() {
+    if (localStorage.getItem("roblingo_seeded_progress_v3") === "true") return;
 
-waterCasualBtn.addEventListener("click", () => {
-    playAudio("./audio/water-casual.m4a", recordingStatus1, "casual audio", waterCasualBtn);
-});
+    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
 
-waterPoliteBtn.addEventListener("click", () => {
-    playAudio("./audio/water-polite.m4a", recordingStatus1, "polite audio", waterPoliteBtn);
-});
+    localStorage.setItem("roblingo_streak", "2");
+    localStorage.setItem("roblingo_last_completed", yesterday.toDateString());
 
-bottleCasualBtn.addEventListener("click", () => {
-    playAudio("./audio/bottle-casual.m4a", recordingStatus2, "casual audio", bottleCasualBtn);
-});
+    localStorage.setItem("roblingo_lesson_1_complete", "true");
+    localStorage.setItem("roblingo_lesson_2_complete", "true");
 
-bottlePoliteBtn.addEventListener("click", () => {
-    playAudio("./audio/bottle-polite.m4a", recordingStatus2, "polite audio", bottlePoliteBtn);
-});
+    localStorage.setItem("roblingo_lesson_1_xp_awarded", "true");
+    localStorage.setItem("roblingo_lesson_2_xp_awarded", "true");
+    localStorage.setItem("roblingo_xp", String(XP_PER_LESSON * 2));
 
-micBtn1.addEventListener("click", () => {
-    handleRecording(micBtn1, recordingStatus1, recordingPlayerWrap1);
-});
-
-micBtn2.addEventListener("click", () => {
-    handleRecording(micBtn2, recordingStatus2, recordingPlayerWrap2);
-});
-
-completeBtn1.addEventListener("click", () => {
-    saveLessonCompletion(1);
-    showSuccess("Nice one", "Lesson 1 complete");
-});
-
-completeBtn2.addEventListener("click", () => {
-    saveLessonCompletion(2);
-    showSuccess("Brilliant", "Lesson 2 complete");
-});
-
-if (!localStorage.getItem("roblingo_version")) {
-    localStorage.setItem("roblingo_version", "1");
+    localStorage.setItem("roblingo_version", "2");
+    localStorage.setItem("roblingo_seeded_progress_v3", "true");
 }
 
+seedStartingProgress();
 updateStreakUI();
-updateLessonLocks();
+updateXPUI();
+renderLessons();
