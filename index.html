@@ -7,90 +7,210 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="phone-shell">
     <div class="phone">
-        <div class="roblingo">
-            <div class="dynamic-island"></div>
+      <div class="dynamic-island"></div>
 
-            <section class="screen active" id="homeScreen">
-                <header class="app-header">
-                    <p class="for-her">For Marina</p>
-                    <h1>Roblingo</h1>
-                    <p>British Accent Practice</p>
+      <!-- Splash -->
+      <section class="screen splash-screen active" id="splashScreen">
+        <div class="splash-inner">
+          <div class="logo-circle">🦜</div>
+          <h1 class="brand-title">Roblingo</h1>
+          <p class="brand-subtitle">British Accent Practice</p>
 
-                    <div class="parrot-wrap">
-                        <img src="./parrot.png" alt="Roblingo parrot" class="parrot-mascot" id="parrotMascot">
-                    </div>
+          <div class="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </section>
 
-                    <div class="version-pill">Version 2</div>
+      <!-- Welcome -->
+      <section class="screen welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+          <div class="welcome-parrot">🦜</div>
+          <p class="for-her">For Marina</p>
+          <h1>Welcome to Roblingo</h1>
+          <p class="welcome-text">
+            Learn British pronunciation in a fun, app-style way.
+          </p>
+          <button id="startBtn" class="primary-btn" type="button">Start Learning</button>
+        </div>
+      </section>
 
-                    <div class="stats-wrap">
-                        <div class="streak-box">
-                            <span>🔥</span>
-                            <span id="streakCount">0</span>
-                            <span>day streak</span>
-                        </div>
-
-                        <div class="xp-box">
-                            <div class="xp-top">
-                                <span>XP</span>
-                                <span id="xpText">0 / 100</span>
-                            </div>
-                            <div class="xp-bar">
-                                <div class="xp-fill" id="xpFill"></div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-
-                <main class="lesson-list" id="lessonList"></main>
-            </section>
-
-            <section class="screen" id="lessonScreen">
-                <div class="top-row">
-                    <button class="icon-btn" id="backBtn" type="button">←</button>
-                </div> 
-
-                <div class="lesson-body">
-                    <p class="lesson-tag" id="lessonTag">Lesson 1</p>
-                    <h2 class="main-word" id="mainWord">Water</h2>
-                    <p class="subtext" id="lessonSubtext">Compare the casual and polite pronunciation.</p>
-
-                    <div class="audio-buttons">
-                        <button class="audio-btn" id="casualBtn" type="button">
-                            <span class="audio-title">🔊 Casual</span>
-                            <span class="audio-note" id="casualNote">water</span>
-                        </button>
-
-                        <button class="audio-btn" id="politeBtn" type="button">
-                            <span class="audio-title">🔊 Polite</span>
-                            <span class="audio-note" id="politeNote">Water</span>
-                        </button>
-                    </div>
-
-                    <button class="mic-btn" id="micBtn" type="button">🎤 Tap to Speak</button>
-
-                    <p class="recording-status" id="recordingStatus">
-                        Tap a pronunciation, then record yourself.
-                    </p>
-
-                    <div id="recordingPlayerWrap" class="recording-player-wrap"></div>
-
-                    <button class="complete-btn" id="completeBtn" type="button">Complete Lesson</button>
-                </div>
-            </section>
-
-            <div class="success-overlay" id="successOverlay">
-                <div class="success-card">
-                    <img src="./parrot.png" alt="Roblingo parrot" class="success-parrot" id="successParrot">
-                    <div class="success-icon">✓</div>
-                    <h3 id="successTitle">Nice one</h3>
-                    <p id="successText">Lesson complete</p>
-                </div>
+      <!-- Main App -->
+      <section class="screen app-screen" id="appScreen">
+        <!-- Home -->
+        <div class="page active" id="homePage">
+          <header class="top-header">
+            <div class="stat-pill">
+              <span>💎</span>
+              <strong id="gemsDisplay">0</strong>
             </div>
 
-            <div class="home-bar"></div>
+            <div class="stat-pill">
+              <span>⭐</span>
+              <strong id="xpText">0 / 100</strong>
+            </div>
+
+            <div class="stat-pill">
+              <span>🔥</span>
+              <strong id="streakCount">0</strong>
+            </div>
+          </header>
+
+          <div class="home-hero home-hero-centered">
+            <p class="for-her">For Marina</p>
+            <h1>Roblingo</h1>
+            <p>British Accent Practice</p>
+
+            <div class="parrot-wrap">
+              <img src="./parrot.png" alt="Roblingo parrot" class="parrot-mascot" id="parrotMascot" />
+            </div>
+
+            <div class="version-pill">Version 2.1</div>
+
+            <div class="xp-box">
+              <div class="xp-top">
+                <span>XP progress</span>
+                <span id="xpTopText">0 / 100</span>
+              </div>
+              <div class="xp-bar">
+                <div class="xp-fill" id="xpFill"></div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Lessons -->
+        <div class="page" id="lessonsPage">
+          <header class="page-head">
+            <h2>Lessons</h2>
+            <p>Complete lessons to unlock the next one.</p>
+          </header>
+
+          <main class="lesson-list lessons-page-list" id="lessonList"></main>
+        </div>
+
+        <!-- Shop -->
+        <div class="page" id="shopPage">
+          <header class="page-head">
+            <h2>Shop</h2>
+            <p>Spend gems on helpful rewards.</p>
+          </header>
+
+          <div class="shop-list">
+            <div class="shop-card">
+              <div>
+                <h3>Streak Freeze</h3>
+                <p>Protects your streak for one missed day.</p>
+              </div>
+              <button id="buyFreezeBtn" class="shop-btn" type="button">50 💎</button>
+            </div>
+
+            <div class="owned-box">
+              <span>Owned streak freezes</span>
+              <strong id="freezeCountDisplay">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Updates -->
+        <div class="page" id="updatesPage">
+          <header class="page-head">
+            <h2>Update Log</h2>
+            <p>New features and changes.</p>
+          </header>
+
+          <div class="update-log">
+            <div class="update-entry">
+              <h3>Version 2.1</h3>
+              <ul>
+                <li>New splash screen</li>
+                <li>Welcome screen added</li>
+                <li>Separate Home page added</li>
+                <li>Separate Lessons page added</li>
+                <li>Shop with streak freezes</li>
+                <li>XP, gems and streak header</li>
+                <li>Original lesson system preserved</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom nav -->
+        <nav class="bottom-nav">
+          <button class="nav-btn active" data-page="homePage" type="button">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Home</span>
+          </button>
+
+          <button class="nav-btn" data-page="lessonsPage" type="button">
+            <span class="nav-icon">📚</span>
+            <span class="nav-label">Lessons</span>
+          </button>
+
+          <button class="nav-btn" data-page="shopPage" type="button">
+            <span class="nav-icon">🛍️</span>
+            <span class="nav-label">Shop</span>
+          </button>
+
+          <button class="nav-btn" data-page="updatesPage" type="button">
+            <span class="nav-icon">📝</span>
+            <span class="nav-label">Updates</span>
+          </button>
+        </nav>
+      </section>
+
+      <!-- Lesson screen -->
+      <section class="screen lesson-screen" id="lessonScreen">
+        <div class="lesson-top-row">
+          <button class="icon-btn" id="backBtn" type="button">←</button>
+        </div>
+
+        <div class="lesson-body">
+          <p class="lesson-tag" id="lessonTag">Lesson 1</p>
+          <h2 class="main-word" id="mainWord">Water</h2>
+          <p class="subtext" id="lessonSubtext">Compare the casual and polite pronunciation.</p>
+
+          <div class="audio-buttons">
+            <button class="audio-btn" id="casualBtn" type="button">
+              <span class="audio-title">🔊 Casual</span>
+              <span class="audio-note" id="casualNote">water</span>
+            </button>
+
+            <button class="audio-btn" id="politeBtn" type="button">
+              <span class="audio-title">🔊 Polite</span>
+              <span class="audio-note" id="politeNote">Water</span>
+            </button>
+          </div>
+
+          <button class="mic-btn" id="micBtn" type="button">🎤 Tap to Speak</button>
+
+          <p class="recording-status" id="recordingStatus">
+            Tap a pronunciation, then record yourself.
+          </p>
+
+          <div id="recordingPlayerWrap" class="recording-player-wrap"></div>
+
+          <button class="complete-btn" id="completeBtn" type="button">Complete Lesson</button>
+        </div>
+      </section>
+
+      <!-- Success -->
+      <div class="success-overlay" id="successOverlay">
+        <div class="success-card">
+          <img src="./parrot.png" alt="Roblingo parrot" class="success-parrot" id="successParrot" />
+          <div class="success-icon">✓</div>
+          <h3 id="successTitle">Nice one</h3>
+          <p id="successText">Lesson complete</p>
+        </div>
+      </div>
+
+      <div class="home-bar"></div>
     </div>
+  </div>
 
 
 
