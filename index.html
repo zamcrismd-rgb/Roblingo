@@ -43,41 +43,51 @@
       <section class="screen app-screen" id="appScreen">
         <!-- Home -->
         <div class="page active" id="homePage">
-          <header class="top-header">
-            <div class="stat-pill">
-              <span>💎</span>
-              <strong id="gemsDisplay">0</strong>
-            </div>
-
-            <div class="stat-pill">
-              <span>⭐</span>
-              <strong id="xpText">0 / 100</strong>
-            </div>
-
-            <div class="stat-pill">
-              <span>🔥</span>
-              <strong id="streakCount">0</strong>
-            </div>
-          </header>
-
-          <div class="home-hero home-hero-centered">
-            <p class="for-her">For Marina</p>
-            <h1>Roblingo</h1>
-            <p>British Accent Practice</p>
-
-            <div class="parrot-wrap">
-              <img src="./parrot.png" alt="Roblingo parrot" class="parrot-mascot" id="parrotMascot" />
-            </div>
-
-            <div class="version-pill">Version 2.1</div>
-
-            <div class="xp-box">
-              <div class="xp-top">
-                <span>XP progress</span>
-                <span id="xpTopText">0 / 100</span>
+          <div class="page-scroll">
+            <header class="top-header">
+              <div class="stat-pill">
+                <span>💎</span>
+                <strong id="gemsDisplay">0</strong>
               </div>
-              <div class="xp-bar">
-                <div class="xp-fill" id="xpFill"></div>
+
+              <div class="stat-pill">
+                <span>⭐</span>
+                <strong id="xpText">0 XP</strong>
+              </div>
+
+              <div class="stat-pill">
+                <span>🔥</span>
+                <strong id="streakCount">0</strong>
+              </div>
+            </header>
+
+            <div class="home-hero home-hero-centered">
+              <p class="for-her">For Marina</p>
+              <h1>Roblingo</h1>
+              <p>British Accent Practice</p>
+
+              <div class="parrot-wrap">
+                <img src="./parrot.png" alt="Roblingo parrot" class="parrot-mascot" id="parrotMascot" />
+              </div>
+
+              <div class="version-pill">Version 3.0</div>
+
+              <div class="xp-box">
+                <div class="xp-top">
+                  <span>Total XP</span>
+                  <span id="xpTopText">0 XP</span>
+                </div>
+
+                <div class="level-row">
+                  <span class="level-label">Level progress</span>
+                  <span class="level-number" id="levelNumber">1</span>
+                </div>
+
+                <div class="xp-bar">
+                  <div class="xp-fill" id="xpFill"></div>
+                </div>
+
+                <div class="xp-level-text" id="xpLevelText">0 / 100 to next level</div>
               </div>
             </div>
           </div>
@@ -85,56 +95,154 @@
 
         <!-- Lessons -->
         <div class="page" id="lessonsPage">
-          <header class="page-head">
-            <h2>Lessons</h2>
-            <p>Complete lessons to unlock the next one.</p>
-          </header>
+          <div class="page-scroll">
+            <header class="page-head">
+              <h2>Lessons</h2>
+              <p>Tap a section to open its lessons.</p>
+            </header>
 
-          <main class="lesson-list lessons-page-list" id="lessonList"></main>
+            <main class="lesson-list lessons-page-list" id="lessonList"></main>
+          </div>
         </div>
 
         <!-- Shop -->
         <div class="page" id="shopPage">
-          <header class="page-head">
-            <h2>Shop</h2>
-            <p>Spend gems on helpful rewards.</p>
-          </header>
+          <div class="page-scroll">
+            <header class="page-head">
+              <h2>Shop</h2>
+              <p>Spend gems on helpful rewards.</p>
+            </header>
 
-          <div class="shop-list">
-            <div class="shop-card">
-              <div>
-                <h3>Streak Freeze</h3>
-                <p>Protects your streak for one missed day.</p>
+            <div class="shop-list">
+              <div class="shop-card">
+                <div>
+                  <h3>Streak Freeze</h3>
+                  <p>Protects your streak for one missed day.</p>
+                </div>
+                <button id="buyFreezeBtn" class="shop-btn" type="button">50 💎</button>
               </div>
-              <button id="buyFreezeBtn" class="shop-btn" type="button">50 💎</button>
-            </div>
 
-            <div class="owned-box">
-              <span>Owned streak freezes</span>
-              <strong id="freezeCountDisplay">0</strong>
+              <div class="owned-box">
+                <span>Owned streak freezes</span>
+                <strong id="freezeCountDisplay">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Builder -->
+        <div class="page" id="builderPage">
+          <div class="page-scroll">
+            <header class="page-head">
+              <h2>Make Your Own Roblingo</h2>
+              <p>Customise your Roblingo with items and colours.</p>
+            </header>
+
+            <div class="builder-wrap">
+              <div class="builder-pet-card">
+                <div class="roblingo-pet" id="roblingoPet">
+                  <div class="pet-body"></div>
+                  <div class="pet-belly"></div>
+                  <div class="pet-wing left"></div>
+                  <div class="pet-wing right"></div>
+                  <div class="pet-eye left"></div>
+                  <div class="pet-eye right"></div>
+                  <div class="pet-beak"></div>
+
+                  <div class="pet-hat hidden" id="petHat"></div>
+                  <div class="pet-glasses hidden" id="petGlasses"></div>
+                  <div class="pet-bow hidden" id="petBow"></div>
+                </div>
+              </div>
+
+              <div class="builder-section">
+                <h3>Pet Colours</h3>
+                <div class="colour-grid">
+                  <button class="colour-btn green active-colour" data-colour="green" type="button"></button>
+                  <button class="colour-btn blue" data-colour="blue" type="button"></button>
+                  <button class="colour-btn pink" data-colour="pink" type="button"></button>
+                  <button class="colour-btn yellow" data-colour="yellow" type="button"></button>
+                  <button class="colour-btn purple" data-colour="purple" type="button"></button>
+                </div>
+              </div>
+
+              <div class="builder-section">
+                <h3>Accessories</h3>
+
+                <div class="accessory-card">
+                  <div>
+                    <strong>Top Hat</strong>
+                    <p>Unlock for 40 gems</p>
+                  </div>
+                  <div class="accessory-actions">
+                    <button class="builder-item" id="unlockHatBtn" type="button">Unlock</button>
+                    <button class="builder-item secondary" id="equipHatBtn" type="button">Equip</button>
+                  </div>
+                </div>
+
+                <div class="accessory-card">
+                  <div>
+                    <strong>Glasses</strong>
+                    <p>Unlock for 80 XP</p>
+                  </div>
+                  <div class="accessory-actions">
+                    <button class="builder-item" id="unlockGlassesBtn" type="button">Unlock</button>
+                    <button class="builder-item secondary" id="equipGlassesBtn" type="button">Equip</button>
+                  </div>
+                </div>
+
+                <div class="accessory-card">
+                  <div>
+                    <strong>Bow Tie</strong>
+                    <p>Unlock for 60 gems</p>
+                  </div>
+                  <div class="accessory-actions">
+                    <button class="builder-item" id="unlockBowBtn" type="button">Unlock</button>
+                    <button class="builder-item secondary" id="equipBowBtn" type="button">Equip</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="builder-owned">
+                <div class="owned-box">
+                  <span>Hat</span>
+                  <strong id="hatOwnedText">Locked</strong>
+                </div>
+                <div class="owned-box">
+                  <span>Glasses</span>
+                  <strong id="glassesOwnedText">Locked</strong>
+                </div>
+                <div class="owned-box">
+                  <span>Bow Tie</span>
+                  <strong id="bowOwnedText">Locked</strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Updates -->
         <div class="page" id="updatesPage">
-          <header class="page-head">
-            <h2>Update Log</h2>
-            <p>New features and changes.</p>
-          </header>
+          <div class="page-scroll">
+            <header class="page-head">
+              <h2>Update Log</h2>
+              <p>New features and changes.</p>
+            </header>
 
-          <div class="update-log">
-            <div class="update-entry">
-              <h3>Version 2.1.1</h3>
-              <ul>
-                <li>New splash screen</li>
-                <li>Welcome screen added</li>
-                <li>Separate Home page added</li>
-                <li>Separate Lessons page added</li>
-                <li>Shop with streak freezes</li>
-                <li>XP, gems and streak header</li>
-                <li>Original lesson system preserved</li>
-              </ul>
+            <div class="update-log">
+              <div class="update-entry">
+                <h3>Version 3.0</h3>
+                <ul>
+                  <li>50 lessons added</li>
+                  <li>Lessons now open inside collapsible sections</li>
+                  <li>Pet customiser improved</li>
+                  <li>Equip and unequip items</li>
+                  <li>Pet colour switching added</li>
+                  <li>Scrollable pages fixed</li>
+                  <li>Bow tie positioning fixed</li>
+                  <li>Lesson cards now show the actual word</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -154,6 +262,11 @@
           <button class="nav-btn" data-page="shopPage" type="button">
             <span class="nav-icon">🛍️</span>
             <span class="nav-label">Shop</span>
+          </button>
+
+          <button class="nav-btn" data-page="builderPage" type="button">
+            <span class="nav-icon">🦜</span>
+            <span class="nav-label">Pet</span>
           </button>
 
           <button class="nav-btn" data-page="updatesPage" type="button">
@@ -214,6 +327,8 @@
 
 
 
+
+
     <script src="script.js?v=2.1.1"></script>
 </body>
-</html>
+</html> 
