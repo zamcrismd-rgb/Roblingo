@@ -69,60 +69,250 @@ const XP_LEVEL_SIZE = 100;
 const FREEZE_COST = 50;
 
 const lessons = [
-  { id: 1, title: "Lesson 1", word: "Water", definition: "A clear liquid that people drink.", audio: "./audio/water.m4a" },
-  { id: 2, title: "Lesson 2", word: "Bottle", definition: "A container used for drinks or liquids.", audio: "./audio/bottle.m4a" },
-  { id: 3, title: "Lesson 3", word: "Better", definition: "More good or improved.", audio: "./audio/better.m4a" },
-  { id: 4, title: "Lesson 4", word: "City", definition: "A large town where many people live and work.", audio: "./audio/city.m4a" },
-  { id: 5, title: "Lesson 5", word: "Letter", definition: "A written character in the alphabet.", audio: "./audio/letter.m4a" },
-  { id: 6, title: "Lesson 6", word: "Party", definition: "A social event where people meet and celebrate.", audio: "./audio/party.m4a" },
-  { id: 7, title: "Lesson 7", word: "Meeting", definition: "A time when people come together to talk.", audio: "./audio/meeting.m4a" },
-  { id: 8, title: "Lesson 8", word: "Chocolate", definition: "A sweet food made from cocoa.", audio: "./audio/chocolate.m4a" },
-  { id: 9, title: "Lesson 9", word: "Morning", definition: "The early part of the day.", audio: "./audio/morning.m4a" },
-  { id: 10, title: "Lesson 10", word: "Tuesday", definition: "The day after Monday.", audio: "./audio/tuesday.m4a" },
+  {
+    id: 1,
+    title: "Lesson 1",
+    word: "Water",
+    definition: "A clear liquid that people drink.",
+    mode: "dual",
+    casualAudio: "./audio/water-casual.m4a",
+    politeAudio: "./audio/water-polite.m4a",
+    casualLabel: "water",
+    politeLabel: "Water"
+  },
+  {
+    id: 2,
+    title: "Lesson 2",
+    word: "Bottle",
+    definition: "A container used for drinks or liquids.",
+    mode: "dual",
+    casualAudio: "./audio/bottle-casual.m4a",
+    politeAudio: "./audio/bottle-polite.m4a",
+    casualLabel: "bottle",
+    politeLabel: "Bottle"
+  },
+  {
+    id: 3,
+    title: "Lesson 3",
+    word: "Better",
+    definition: "More good or improved.",
+    mode: "dual",
+    casualAudio: "./audio/better-casual.m4a",
+    politeAudio: "./audio/better-polite.m4a",
+    casualLabel: "better",
+    politeLabel: "Better"
+  },
+  {
+    id: 4,
+    title: "Lesson 4",
+    word: "City",
+    definition: "A large town where many people live and work.",
+    mode: "dual",
+    casualAudio: "./audio/city-casual.m4a",
+    politeAudio: "./audio/city-polite.m4a",
+    casualLabel: "city",
+    politeLabel: "City"
+  },
+  {
+    id: 5,
+    title: "Lesson 5",
+    word: "Letter",
+    definition: "A written character in the alphabet.",
+    mode: "dual",
+    casualAudio: "./audio/letter-casual.m4a",
+    politeAudio: "./audio/letter-polite.m4a",
+    casualLabel: "letter",
+    politeLabel: "Letter"
+  },
+  {
+    id: 6,
+    title: "Lesson 6",
+    word: "Party",
+    definition: "A social event where people meet and celebrate.",
+    mode: "dual",
+    casualAudio: "./audio/party-casual.m4a",
+    politeAudio: "./audio/party-polite.m4a",
+    casualLabel: "party",
+    politeLabel: "Party"
+  },
+  {
+    id: 7,
+    title: "Lesson 7",
+    word: "Meeting",
+    definition: "A time when people come together to talk.",
+    mode: "dual",
+    casualAudio: "./audio/meeting-casual.m4a",
+    politeAudio: "./audio/meeting-polite.m4a",
+    casualLabel: "meeting",
+    politeLabel: "Meeting"
+  },
+  {
+    id: 8,
+    title: "Lesson 8",
+    word: "Chocolate",
+    definition: "A sweet food made from cocoa.",
+    mode: "dual",
+    casualAudio: "./audio/chocolate-casual.m4a",
+    politeAudio: "./audio/chocolate-polite.m4a",
+    casualLabel: "chocolate",
+    politeLabel: "Chocolate"
+  },
+  {
+    id: 9,
+    title: "Lesson 9",
+    word: "Morning",
+    definition: "The early part of the day.",
+    mode: "dual",
+    casualAudio: "./audio/morning-casual.m4a",
+    politeAudio: "./audio/morning-polite.m4a",
+    casualLabel: "morning",
+    politeLabel: "Morning"
+  },
+  {
+    id: 10,
+    title: "Lesson 10",
+    word: "Tuesday",
+    definition: "The day after Monday.",
+    mode: "dual",
+    casualAudio: "./audio/tuesday-casual.m4a",
+    politeAudio: "./audio/tuesday-polite.m4a",
+    casualLabel: "tuesday",
+    politeLabel: "Tuesday"
+  },
 
-  { id: 11, title: "Lesson 11", word: "Little", definition: "Small in size or amount.", audio: "./audio/little.m4a" },
-  { id: 12, title: "Lesson 12", word: "Table", definition: "A piece of furniture with a flat top.", audio: "./audio/table.m4a" },
-  { id: 13, title: "Lesson 13", word: "Family", definition: "The people related to you.", audio: "./audio/family.m4a" },
-  { id: 14, title: "Lesson 14", word: "Window", definition: "An opening in a wall with glass in it.", audio: "./audio/window.m4a" },
-  { id: 15, title: "Lesson 15", word: "Again", definition: "One more time.", audio: "./audio/again.m4a" },
-  { id: 16, title: "Lesson 16", word: "Office", definition: "A place where people do work at desks.", audio: "./audio/office.m4a" },
-  { id: 17, title: "Lesson 17", word: "Question", definition: "Something you ask when you want an answer.", audio: "./audio/question.m4a" },
-  { id: 18, title: "Lesson 18", word: "Teacher", definition: "A person who helps students learn.", audio: "./audio/teacher.m4a" },
-  { id: 19, title: "Lesson 19", word: "Problem", definition: "Something difficult that needs to be solved.", audio: "./audio/problem.m4a" },
-  { id: 20, title: "Lesson 20", word: "Pardon", definition: "A polite word used when asking someone to repeat.", audio: "./audio/pardon.m4a" },
+  {
+    id: 11,
+    title: "Lesson 11",
+    word: "Little",
+    definition: "Small in size or amount.",
+    mode: "dual",
+    casualAudio: "./audio/little-casual.m4a",
+    politeAudio: "./audio/little-polite.m4a",
+    casualLabel: "little",
+    politeLabel: "Little"
+  },
+  {
+    id: 12,
+    title: "Lesson 12",
+    word: "Table",
+    definition: "A piece of furniture with a flat top.",
+    mode: "dual",
+    casualAudio: "./audio/table-casual.m4a",
+    politeAudio: "./audio/table-polite.m4a",
+    casualLabel: "table",
+    politeLabel: "Table"
+  },
+  {
+    id: 13,
+    title: "Lesson 13",
+    word: "Family",
+    definition: "The people related to you.",
+    mode: "dual",
+    casualAudio: "./audio/family-casual.m4a",
+    politeAudio: "./audio/family-polite.m4a",
+    casualLabel: "family",
+    politeLabel: "Family"
+  },
+  {
+    id: 14,
+    title: "Lesson 14",
+    word: "Window",
+    definition: "An opening in a wall with glass in it.",
+    mode: "single",
+    audio: "./audio/window.m4a",
+    audioLabel: "window"
+  },
+  {
+    id: 15,
+    title: "Lesson 15",
+    word: "Again",
+    definition: "One more time.",
+    mode: "dual",
+    casualAudio: "./audio/again-casual.m4a",
+    politeAudio: "./audio/again-polite.m4a",
+    casualLabel: "again",
+    politeLabel: "Again"
+  },
+  {
+    id: 16,
+    title: "Lesson 16",
+    word: "Office",
+    definition: "A place where people do work at desks.",
+    mode: "single",
+    audio: "./audio/office.m4a",
+    audioLabel: "office"
+  },
+  {
+    id: 17,
+    title: "Lesson 17",
+    word: "Question",
+    definition: "Something you ask when you want an answer.",
+    mode: "single",
+    audio: "./audio/question.m4a",
+    audioLabel: "question"
+  },
+  {
+    id: 18,
+    title: "Lesson 18",
+    word: "Teacher",
+    definition: "A person who helps students learn.",
+    mode: "dual",
+    casualAudio: "./audio/teacher-casual.m4a",
+    politeAudio: "./audio/teacher-polite.m4a",
+    casualLabel: "teacher",
+    politeLabel: "Teacher"
+  },
+  {
+    id: 19,
+    title: "Lesson 19",
+    word: "Problem",
+    definition: "Something difficult that needs to be solved.",
+    mode: "single",
+    audio: "./audio/problem.m4a",
+    audioLabel: "problem"
+  },
+  {
+    id: 20,
+    title: "Lesson 20",
+    word: "Pardon",
+    definition: "A polite word used when asking someone to repeat.",
+    mode: "single",
+    audio: "./audio/pardon.m4a",
+    audioLabel: "pardon"
+  },
 
-  { id: 21, title: "Lesson 21", word: "Today", definition: "This current day.", audio: "./audio/today.m4a" },
-  { id: 22, title: "Lesson 22", word: "Tomorrow", definition: "The day after today.", audio: "./audio/tomorrow.m4a" },
-  { id: 23, title: "Lesson 23", word: "Yesterday", definition: "The day before today.", audio: "./audio/yesterday.m4a" },
-  { id: 24, title: "Lesson 24", word: "School", definition: "A place where children go to learn.", audio: "./audio/school.m4a" },
-  { id: 25, title: "Lesson 25", word: "Student", definition: "A person who is learning.", audio: "./audio/student.m4a" },
-  { id: 26, title: "Lesson 26", word: "Computer", definition: "An electronic machine used for work or study.", audio: "./audio/computer.m4a" },
-  { id: 27, title: "Lesson 27", word: "Holiday", definition: "A time for rest or travel away from work or school.", audio: "./audio/holiday.m4a" },
-  { id: 28, title: "Lesson 28", word: "Airport", definition: "A place where planes arrive and leave.", audio: "./audio/airport.m4a" },
-  { id: 29, title: "Lesson 29", word: "Breakfast", definition: "The first meal of the day.", audio: "./audio/breakfast.m4a" },
-  { id: 30, title: "Lesson 30", word: "Favourite", definition: "Something you like the most.", audio: "./audio/favourite.m4a" },
+  { id: 21, title: "Lesson 21", word: "Today", definition: "This current day.", mode: "single", audio: "./audio/today.m4a", audioLabel: "today" },
+  { id: 22, title: "Lesson 22", word: "Tomorrow", definition: "The day after today.", mode: "single", audio: "./audio/tomorrow.m4a", audioLabel: "tomorrow" },
+  { id: 23, title: "Lesson 23", word: "Yesterday", definition: "The day before today.", mode: "single", audio: "./audio/yesterday.m4a", audioLabel: "yesterday" },
+  { id: 24, title: "Lesson 24", word: "School", definition: "A place where children go to learn.", mode: "single", audio: "./audio/school.m4a", audioLabel: "school" },
+  { id: 25, title: "Lesson 25", word: "Student", definition: "A person who is learning.", mode: "single", audio: "./audio/student.m4a", audioLabel: "student" },
+  { id: 26, title: "Lesson 26", word: "Computer", definition: "An electronic machine used for work or study.", mode: "single", audio: "./audio/computer.m4a", audioLabel: "computer" },
+  { id: 27, title: "Lesson 27", word: "Holiday", definition: "A time for rest or travel away from work or school.", mode: "single", audio: "./audio/holiday.m4a", audioLabel: "holiday" },
+  { id: 28, title: "Lesson 28", word: "Airport", definition: "A place where planes arrive and leave.", mode: "single", audio: "./audio/airport.m4a", audioLabel: "airport" },
+  { id: 29, title: "Lesson 29", word: "Breakfast", definition: "The first meal of the day.", mode: "single", audio: "./audio/breakfast.m4a", audioLabel: "breakfast" },
+  { id: 30, title: "Lesson 30", word: "Favourite", definition: "Something you like the most.", mode: "single", audio: "./audio/favourite.m4a", audioLabel: "favourite" },
 
-  { id: 31, title: "Lesson 31", word: "Garden", definition: "An outdoor area where plants grow.", audio: "./audio/garden.m4a" },
-  { id: 32, title: "Lesson 32", word: "Village", definition: "A small place where people live, smaller than a town.", audio: "./audio/village.m4a" },
-  { id: 33, title: "Lesson 33", word: "Weather", definition: "The condition of the sky, rain, sun, or wind.", audio: "./audio/weather.m4a" },
-  { id: 34, title: "Lesson 34", word: "Travel", definition: "To go from one place to another.", audio: "./audio/travel.m4a" },
-  { id: 35, title: "Lesson 35", word: "Station", definition: "A place where trains or buses stop.", audio: "./audio/station.m4a" },
-  { id: 36, title: "Lesson 36", word: "Kitchen", definition: "The room where food is cooked.", audio: "./audio/kitchen.m4a" },
-  { id: 37, title: "Lesson 37", word: "Dinner", definition: "The main meal, often eaten in the evening.", audio: "./audio/dinner.m4a" },
-  { id: 38, title: "Lesson 38", word: "Phone", definition: "A device used to call or message people.", audio: "./audio/phone.m4a" },
-  { id: 39, title: "Lesson 39", word: "Picture", definition: "An image, photo, or drawing.", audio: "./audio/picture.m4a" },
-  { id: 40, title: "Lesson 40", word: "Music", definition: "Sounds arranged in a pleasant way.", audio: "./audio/music.m4a" },
+  { id: 31, title: "Lesson 31", word: "Garden", definition: "An outdoor area where plants grow.", mode: "single", audio: "./audio/garden.m4a", audioLabel: "garden" },
+  { id: 32, title: "Lesson 32", word: "Village", definition: "A small place where people live, smaller than a town.", mode: "single", audio: "./audio/village.m4a", audioLabel: "village" },
+  { id: 33, title: "Lesson 33", word: "Weather", definition: "The condition of the sky, rain, sun, or wind.", mode: "single", audio: "./audio/weather.m4a", audioLabel: "weather" },
+  { id: 34, title: "Lesson 34", word: "Travel", definition: "To go from one place to another.", mode: "single", audio: "./audio/travel.m4a", audioLabel: "travel" },
+  { id: 35, title: "Lesson 35", word: "Station", definition: "A place where trains or buses stop.", mode: "single", audio: "./audio/station.m4a", audioLabel: "station" },
+  { id: 36, title: "Lesson 36", word: "Kitchen", definition: "The room where food is cooked.", mode: "single", audio: "./audio/kitchen.m4a", audioLabel: "kitchen" },
+  { id: 37, title: "Lesson 37", word: "Dinner", definition: "The main meal, often eaten in the evening.", mode: "single", audio: "./audio/dinner.m4a", audioLabel: "dinner" },
+  { id: 38, title: "Lesson 38", word: "Phone", definition: "A device used to call or message people.", mode: "single", audio: "./audio/phone.m4a", audioLabel: "phone" },
+  { id: 39, title: "Lesson 39", word: "Picture", definition: "An image, photo, or drawing.", mode: "single", audio: "./audio/picture.m4a", audioLabel: "picture" },
+  { id: 40, title: "Lesson 40", word: "Music", definition: "Sounds arranged in a pleasant way.", mode: "single", audio: "./audio/music.m4a", audioLabel: "music" },
 
-  { id: 41, title: "Lesson 41", word: "Friend", definition: "A person you like and know well.", audio: "./audio/friend.m4a" },
-  { id: 42, title: "Lesson 42", word: "People", definition: "More than one person.", audio: "./audio/people.m4a" },
-  { id: 43, title: "Lesson 43", word: "London", definition: "The capital city of the United Kingdom.", audio: "./audio/london.m4a" },
-  { id: 44, title: "Lesson 44", word: "English", definition: "The language spoken in England and many other places.", audio: "./audio/english.m4a" },
-  { id: 45, title: "Lesson 45", word: "Saturday", definition: "The day after Friday.", audio: "./audio/saturday.m4a" },
-  { id: 46, title: "Lesson 46", word: "Sunday", definition: "The day after Saturday.", audio: "./audio/sunday.m4a" },
-  { id: 47, title: "Lesson 47", word: "Orange", definition: "A round citrus fruit and also a colour.", audio: "./audio/orange.m4a" },
-  { id: 48, title: "Lesson 48", word: "Purple", definition: "A colour between red and blue.", audio: "./audio/purple.m4a" },
-  { id: 49, title: "Lesson 49", word: "Camera", definition: "A device used to take photos or videos.", audio: "./audio/camera.m4a" },
-  { id: 50, title: "Lesson 50", word: "Market", definition: "A place where goods are bought and sold.", audio: "./audio/market.m4a" }
+  { id: 41, title: "Lesson 41", word: "Friend", definition: "A person you like and know well.", mode: "single", audio: "./audio/friend.m4a", audioLabel: "friend" },
+  { id: 42, title: "Lesson 42", word: "People", definition: "More than one person.", mode: "single", audio: "./audio/people.m4a", audioLabel: "people" },
+  { id: 43, title: "Lesson 43", word: "London", definition: "The capital city of the United Kingdom.", mode: "single", audio: "./audio/london.m4a", audioLabel: "london" },
+  { id: 44, title: "Lesson 44", word: "English", definition: "The language spoken in England and many other places.", mode: "single", audio: "./audio/english.m4a", audioLabel: "english" },
+  { id: 45, title: "Lesson 45", word: "Saturday", definition: "The day after Friday.", mode: "single", audio: "./audio/saturday.m4a", audioLabel: "saturday" },
+  { id: 46, title: "Lesson 46", word: "Sunday", definition: "The day after Saturday.", mode: "single", audio: "./audio/sunday.m4a", audioLabel: "sunday" },
+  { id: 47, title: "Lesson 47", word: "Orange", definition: "A round citrus fruit and also a colour.", mode: "single", audio: "./audio/orange.m4a", audioLabel: "orange" },
+  { id: 48, title: "Lesson 48", word: "Purple", definition: "A colour between red and blue.", mode: "single", audio: "./audio/purple.m4a", audioLabel: "purple" },
+  { id: 49, title: "Lesson 49", word: "Camera", definition: "A device used to take photos or videos.", mode: "single", audio: "./audio/camera.m4a", audioLabel: "camera" },
+  { id: 50, title: "Lesson 50", word: "Market", definition: "A place where goods are bought and sold.", mode: "single", audio: "./audio/market.m4a", audioLabel: "market" }
 ];
 
 const sections = [
@@ -552,11 +742,34 @@ async function handleRecording(micButton, statusEl, wrapEl) {
 }
 
 function updateLessonButtonsForMode(lesson) {
+  const casualTitle = casualBtn.querySelector(".audio-title");
+  const politeTitle = politeBtn.querySelector(".audio-title");
+
+  if (lesson.mode === "dual") {
+    casualBtn.style.display = "flex";
+    politeBtn.style.display = "flex";
+
+    casualTitle.textContent = "🔊 Casual";
+    politeTitle.textContent = "🔊 Polite";
+
+    casualNote.textContent = lesson.casualLabel || lesson.word.toLowerCase();
+    politeNote.textContent = lesson.politeLabel || lesson.word;
+    return;
+  }
+
   casualBtn.style.display = "flex";
   politeBtn.style.display = "none";
 
-  casualBtn.querySelector(".audio-title").textContent = "🔊 Listen";
-  casualNote.textContent = lesson.word;
+  casualTitle.textContent = "🔊 Listen";
+  casualNote.textContent = lesson.audioLabel || lesson.word.toLowerCase();
+  politeNote.textContent = "";
+}
+
+function getLessonInstructionText(lesson) {
+  if (lesson.mode === "dual") {
+    return "Compare the casual and polite pronunciation.";
+  }
+  return "Listen to the pronunciation and practise saying it.";
 }
 
 function openLesson(lessonId) {
@@ -567,7 +780,7 @@ function openLesson(lessonId) {
 
   lessonTag.textContent = lesson.title;
   mainWord.textContent = lesson.word;
-  lessonSubtext.textContent = lesson.definition;
+  lessonSubtext.textContent = getLessonInstructionText(lesson);
 
   updateLessonButtonsForMode(lesson);
 
@@ -719,7 +932,7 @@ function toggleEquip(name) {
 }
 
 function seedStartingProgress() {
-  if (localStorage.getItem("roblingo_seeded_progress_v3_single") === "true") return;
+  if (localStorage.getItem("roblingo_seeded_progress_v3_mixed") === "true") return;
 
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
@@ -756,7 +969,7 @@ function seedStartingProgress() {
   }
 
   localStorage.setItem("roblingo_version", "3");
-  localStorage.setItem("roblingo_seeded_progress_v3_single", "true");
+  localStorage.setItem("roblingo_seeded_progress_v3_mixed", "true");
 }
 
 backBtn.addEventListener("click", () => {
@@ -766,11 +979,18 @@ backBtn.addEventListener("click", () => {
 
 casualBtn.addEventListener("click", () => {
   if (!currentLesson) return;
-  playAudio(currentLesson.audio, recordingStatus, "audio", casualBtn);
+
+  if (currentLesson.mode === "dual") {
+    playAudio(currentLesson.casualAudio, recordingStatus, "casual pronunciation", casualBtn);
+    return;
+  }
+
+  playAudio(currentLesson.audio, recordingStatus, "pronunciation", casualBtn);
 });
 
 politeBtn.addEventListener("click", () => {
-  // intentionally unused now
+  if (!currentLesson || currentLesson.mode !== "dual") return;
+  playAudio(currentLesson.politeAudio, recordingStatus, "polite pronunciation", politeBtn);
 });
 
 micBtn.addEventListener("click", () => {
