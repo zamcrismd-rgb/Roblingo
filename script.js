@@ -7,32 +7,122 @@ const screens = {
   lesson: $("lessonScreen")
 };
 
-const pages = ["homePage", "lessonsPage", "achievementsPage", "profilePage", "shopPage", "builderPage", "updatesPage"];
+const pages = [
+  "homePage",
+  "lessonsPage",
+  "achievementsPage",
+  "profilePage",
+  "shopPage",
+  "builderPage",
+  "updatesPage"
+];
+
 const navButtons = document.querySelectorAll(".nav-btn");
+const colourButtons = document.querySelectorAll(".colour-btn");
 
 const els = {
-  lessonList: $("lessonList"), achievementList: $("achievementList"), helpList: $("helpList"),
-  startBtn: $("startBtn"), continueBtn: $("continueBtn"), backBtn: $("backBtn"),
-  homeLessonsBtn: $("homeLessonsBtn"), homeAchievementsBtn: $("homeAchievementsBtn"), homeProfileBtn: $("homeProfileBtn"), homePetBtn: $("homePetBtn"), homeShopBtn: $("homeShopBtn"), homeHelpBtn: $("homeHelpBtn"),
-  casualBtn: $("casualBtn"), politeBtn: $("politeBtn"), micBtn: $("micBtn"), completeBtn: $("completeBtn"),
-  lessonTag: $("lessonTag"), mainWord: $("mainWord"), definitionText: $("definitionText"), lessonSubtext: $("lessonSubtext"), casualNote: $("casualNote"), politeNote: $("politeNote"), lessonProgressPill: $("lessonProgressPill"),
-  recordingStatus: $("recordingStatus"), recordingPlayerWrap: $("recordingPlayerWrap"),
-  scoreCard: $("scoreCard"), scoreCircle: $("scoreCircle"), scoreTitle: $("scoreTitle"), scoreFeedback: $("scoreFeedback"),
-  successOverlay: $("successOverlay"), successTitle: $("successTitle"), successText: $("successText"), successParrot: $("successParrot"),
-  achievementOverlay: $("achievementOverlay"), achievementPopupTitle: $("achievementPopupTitle"), achievementPopupText: $("achievementPopupText"),
-  streakCount: $("streakCount"), xpText: $("xpText"), xpTopText: $("xpTopText"), xpFill: $("xpFill"), xpLevelText: $("xpLevelText"), levelNumber: $("levelNumber"), gemsDisplay: $("gemsDisplay"), freezeCountDisplay: $("freezeCountDisplay"),
-  homeLessonProgress: $("homeLessonProgress"), homeAchievementProgress: $("homeAchievementProgress"), dailyTipText: $("dailyTipText"),
-  profilePetCard: $("profilePetCard"), profileStreak: $("profileStreak"), profileFreezes: $("profileFreezes"), profileXP: $("profileXP"), profileGems: $("profileGems"), profileLessons: $("profileLessons"), profileAchievements: $("profileAchievements"), profileLevel: $("profileLevel"),
-  buyFreezeBtn: $("buyFreezeBtn"), buyCrownBtn: $("buyCrownBtn"), buyScarfBtn: $("buyScarfBtn"),
-  roblingoPet: $("roblingoPet"), homeParrot: $("homeParrot"),
-  petHat: $("petHat"), petGlasses: $("petGlasses"), petBow: $("petBow"), petScarf: $("petScarf"), petCrown: $("petCrown"),
-  homePetHat: $("homePetHat"), homePetGlasses: $("homePetGlasses"), homePetBow: $("homePetBow"), homePetScarf: $("homePetScarf"), homePetCrown: $("homePetCrown"),
-  unlockHatBtn: $("unlockHatBtn"), unlockGlassesBtn: $("unlockGlassesBtn"), unlockBowBtn: $("unlockBowBtn"),
-  equipHatBtn: $("equipHatBtn"), equipGlassesBtn: $("equipGlassesBtn"), equipBowBtn: $("equipBowBtn"), equipScarfBtn: $("equipScarfBtn"), equipCrownBtn: $("equipCrownBtn"),
-  hatOwnedText: $("hatOwnedText"), glassesOwnedText: $("glassesOwnedText"), bowOwnedText: $("bowOwnedText"), scarfOwnedText: $("scarfOwnedText"), crownOwnedText: $("crownOwnedText")
-};
+  lessonList: $("lessonList"),
+  achievementList: $("achievementList"),
+  helpList: $("helpList"),
 
-const colourButtons = document.querySelectorAll(".colour-btn");
+  startBtn: $("startBtn"),
+  continueBtn: $("continueBtn"),
+  backBtn: $("backBtn"),
+
+  homeLessonsBtn: $("homeLessonsBtn"),
+  homeAchievementsBtn: $("homeAchievementsBtn"),
+  homeProfileBtn: $("homeProfileBtn"),
+  homePetBtn: $("homePetBtn"),
+  homeShopBtn: $("homeShopBtn"),
+  homeHelpBtn: $("homeHelpBtn"),
+
+  casualBtn: $("casualBtn"),
+  politeBtn: $("politeBtn"),
+  micBtn: $("micBtn"),
+  completeBtn: $("completeBtn"),
+
+  lessonTag: $("lessonTag"),
+  mainWord: $("mainWord"),
+  definitionText: $("definitionText"),
+  lessonSubtext: $("lessonSubtext"),
+  casualNote: $("casualNote"),
+  politeNote: $("politeNote"),
+  lessonProgressPill: $("lessonProgressPill"),
+
+  recordingStatus: $("recordingStatus"),
+  recordingPlayerWrap: $("recordingPlayerWrap"),
+
+  scoreCard: $("scoreCard"),
+  scoreCircle: $("scoreCircle"),
+  scoreTitle: $("scoreTitle"),
+  scoreFeedback: $("scoreFeedback"),
+
+  successOverlay: $("successOverlay"),
+  successTitle: $("successTitle"),
+  successText: $("successText"),
+  successParrot: $("successParrot"),
+
+  achievementOverlay: $("achievementOverlay"),
+  achievementPopupTitle: $("achievementPopupTitle"),
+  achievementPopupText: $("achievementPopupText"),
+
+  streakCount: $("streakCount"),
+  xpText: $("xpText"),
+  xpTopText: $("xpTopText"),
+  xpFill: $("xpFill"),
+  xpLevelText: $("xpLevelText"),
+  levelNumber: $("levelNumber"),
+  gemsDisplay: $("gemsDisplay"),
+  freezeCountDisplay: $("freezeCountDisplay"),
+
+  homeLessonProgress: $("homeLessonProgress"),
+  homeAchievementProgress: $("homeAchievementProgress"),
+  dailyTipText: $("dailyTipText"),
+
+  profilePetCard: $("profilePetCard"),
+  profileStreak: $("profileStreak"),
+  profileFreezes: $("profileFreezes"),
+  profileXP: $("profileXP"),
+  profileGems: $("profileGems"),
+  profileLessons: $("profileLessons"),
+  profileAchievements: $("profileAchievements"),
+  profileLevel: $("profileLevel"),
+
+  buyFreezeBtn: $("buyFreezeBtn"),
+  buyCrownBtn: $("buyCrownBtn"),
+  buyScarfBtn: $("buyScarfBtn"),
+
+  roblingoPet: $("roblingoPet"),
+  homeParrot: $("homeParrot"),
+
+  petHat: $("petHat"),
+  petGlasses: $("petGlasses"),
+  petBow: $("petBow"),
+  petScarf: $("petScarf"),
+  petCrown: $("petCrown"),
+
+  homePetHat: $("homePetHat"),
+  homePetGlasses: $("homePetGlasses"),
+  homePetBow: $("homePetBow"),
+  homePetScarf: $("homePetScarf"),
+  homePetCrown: $("homePetCrown"),
+
+  unlockHatBtn: $("unlockHatBtn"),
+  unlockGlassesBtn: $("unlockGlassesBtn"),
+  unlockBowBtn: $("unlockBowBtn"),
+
+  equipHatBtn: $("equipHatBtn"),
+  equipGlassesBtn: $("equipGlassesBtn"),
+  equipBowBtn: $("equipBowBtn"),
+  equipScarfBtn: $("equipScarfBtn"),
+  equipCrownBtn: $("equipCrownBtn"),
+
+  hatOwnedText: $("hatOwnedText"),
+  glassesOwnedText: $("glassesOwnedText"),
+  bowOwnedText: $("bowOwnedText"),
+  scarfOwnedText: $("scarfOwnedText"),
+  crownOwnedText: $("crownOwnedText")
+};
 
 const XP_PER_LESSON = 10;
 const GEMS_PER_LESSON = 5;
@@ -93,11 +183,11 @@ const lessons = [
 ];
 
 const sections = [
-  { id: 1, title: "Section 1", subtitle: "Basic pronunciation words", lessonIds: [1,2,3,4,5,6,7,8,9,10] },
-  { id: 2, title: "Section 2", subtitle: "Everyday speaking words", lessonIds: [11,12,13,14,15,16,17,18,19,20] },
-  { id: 3, title: "Section 3", subtitle: "Useful daily vocabulary", lessonIds: [21,22,23,24,25,26,27,28,29,30] },
-  { id: 4, title: "Section 4", subtitle: "Speaking confidence words", lessonIds: [31,32,33,34,35,36,37,38,39,40] },
-  { id: 5, title: "Section 5", subtitle: "Harder words", lessonIds: [41,42,43,44,45,46,47,48,49,50] }
+  { id: 1, title: "Section 1", subtitle: "Basic pronunciation words", lessonIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
+  { id: 2, title: "Section 2", subtitle: "Everyday speaking words", lessonIds: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20] },
+  { id: 3, title: "Section 3", subtitle: "Useful daily vocabulary", lessonIds: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30] },
+  { id: 4, title: "Section 4", subtitle: "Speaking confidence words", lessonIds: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40] },
+  { id: 5, title: "Section 5", subtitle: "Harder words", lessonIds: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50] }
 ];
 
 const achievements = [
@@ -130,7 +220,8 @@ const helpItems = [
   { title: "Gems", text: "Gems are rewards from lessons. Spend them in the shop without losing lesson progress." },
   { title: "Streak", text: "Your streak grows when you complete a lesson on a new day. Roblingo keeps it fun instead of stressful." },
   { title: "Streak Freeze", text: "A freeze protects your streak if you miss a day. You can buy freezes in the shop." },
-  { title: "Pronunciation score", text: "The score is a fun practice score, not a real AI accent judge yet. It encourages recording and listening back." },
+  { title: "Real speech check", text: "Roblingo tries to listen to the word and compare it to the lesson word. If the browser does not support it, it falls back to normal recording." },
+  { title: "Recording fallback", text: "If speech checking fails on Safari or another browser, Roblingo still records audio so the learner can listen back." },
   { title: "Profile", text: "Your profile shows your XP, gems, freezes, achievements, lessons and your personal Roblingo pet." },
   { title: "Roblingo Pet", text: "Choose a colour or unlock an item to create your pet. That pet becomes your profile avatar." },
   { title: "Progress safety", text: "This version keeps existing localStorage keys for XP, gems, streaks, completed lessons and pet items." }
@@ -140,25 +231,36 @@ let currentLesson = null;
 let currentRecorder = null;
 let currentStream = null;
 let currentAudioChunks = [];
+let currentRecognition = null;
 let isRecording = false;
+let isListeningForSpeech = false;
 let lastPronunciationScore = null;
 
+function addClick(element, callback) {
+  if (element) element.addEventListener("click", callback);
+}
+
 function showOnlyScreen(screenToShow) {
-  Object.values(screens).forEach((screen) => screen.classList.remove("active"));
-  screenToShow.classList.add("active");
+  Object.values(screens).forEach((screen) => screen?.classList.remove("active"));
+  screenToShow?.classList.add("active");
 }
 
 function showPage(pageId) {
   pages.forEach((id) => $(id)?.classList.remove("active"));
   navButtons.forEach((btn) => btn.classList.remove("active"));
-
   $(pageId)?.classList.add("active");
   document.querySelector(`.nav-btn[data-page="${pageId}"]`)?.classList.add("active");
   updateAllUI();
 }
 
-function getNumber(key) { return Number(localStorage.getItem(key)) || 0; }
-function setLocalNumber(key, value) { localStorage.setItem(key, String(Math.max(0, Number(value) || 0))); }
+function getNumber(key) {
+  return Number(localStorage.getItem(key)) || 0;
+}
+
+function setLocalNumber(key, value) {
+  localStorage.setItem(key, String(Math.max(0, Number(value) || 0)));
+}
+
 function getStoredXP() { return getNumber("roblingo_xp"); }
 function getStoredGems() { return getNumber("roblingo_gems"); }
 function getStoredFreezes() { return getNumber("roblingo_freezes"); }
@@ -171,6 +273,7 @@ function getCompletedLessonCount() { return lessons.filter((lesson) => isLessonC
 function getNextLesson() { return lessons.find((lesson) => !isLessonComplete(lesson.id)) || lessons[lessons.length - 1]; }
 function getAchievementUnlocked(id) { return localStorage.getItem(`roblingo_achievement_${id}`) === "true"; }
 function setAchievementUnlocked(id) { localStorage.setItem(`roblingo_achievement_${id}`, "true"); }
+function getLevelFromXP(xp) { return Math.floor(xp / XP_LEVEL_SIZE) + 1; }
 
 function animateElement(element, className) {
   if (!element) return;
@@ -185,36 +288,250 @@ function stopCurrentStream() {
   currentStream = null;
 }
 
-function getLevelFromXP(xp) { return Math.floor(xp / XP_LEVEL_SIZE) + 1; }
+function stopSpeechRecognition() {
+  if (!currentRecognition) return;
+  try {
+    currentRecognition.stop();
+  } catch (error) {
+    console.warn("Speech recognition already stopped.", error);
+  }
+  currentRecognition = null;
+  isListeningForSpeech = false;
+}
+
+function isSpeechRecognitionSupported() {
+  return !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+}
+
+function normaliseSpeechText(text) {
+  return String(text)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, " ");
+}
+
+function levenshteinDistance(a, b) {
+  const matrix = [];
+  for (let i = 0; i <= b.length; i += 1) matrix[i] = [i];
+  for (let j = 0; j <= a.length; j += 1) matrix[0][j] = j;
+
+  for (let i = 1; i <= b.length; i += 1) {
+    for (let j = 1; j <= a.length; j += 1) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+function calculateSpeechMatchScore(spokenText, targetWord) {
+  const spoken = normaliseSpeechText(spokenText);
+  const target = normaliseSpeechText(targetWord);
+  if (!spoken || !target) return 0;
+  if (spoken === target) return 98;
+  if (spoken.includes(target)) return 92;
+
+  const words = spoken.split(" ");
+  const bestWordScore = words.reduce((best, word) => {
+    const distance = levenshteinDistance(word, target);
+    const longest = Math.max(word.length, target.length);
+    const similarity = longest === 0 ? 0 : 1 - distance / longest;
+    return Math.max(best, similarity);
+  }, 0);
+
+  const fullDistance = levenshteinDistance(spoken, target);
+  const fullLongest = Math.max(spoken.length, target.length);
+  const fullSimilarity = fullLongest === 0 ? 0 : 1 - fullDistance / fullLongest;
+  const finalSimilarity = Math.max(bestWordScore, fullSimilarity);
+  return Math.max(15, Math.min(95, Math.round(finalSimilarity * 100)));
+}
+
+function showSpeechScore(spokenText, score) {
+  lastPronunciationScore = score;
+  if (els.scoreCircle) els.scoreCircle.textContent = `${score}%`;
+  if (els.scoreTitle) els.scoreTitle.textContent = "Speech match score";
+
+  if (els.scoreFeedback) {
+    if (score >= 90) {
+      els.scoreFeedback.textContent = `Excellent. I heard "${spokenText}".`;
+    } else if (score >= 75) {
+      els.scoreFeedback.textContent = `Good try. I heard "${spokenText}". Try making "${currentLesson.word}" clearer.`;
+    } else if (score >= 50) {
+      els.scoreFeedback.textContent = `Close. I heard "${spokenText}". Try saying "${currentLesson.word}" slowly, then naturally.`;
+    } else {
+      els.scoreFeedback.textContent = `I heard "${spokenText}". Try again and focus on "${currentLesson.word}".`;
+    }
+  }
+
+  els.scoreCard?.classList.remove("hidden");
+  if (els.recordingStatus) els.recordingStatus.textContent = `Detected: "${spokenText}"`;
+  if (els.lessonProgressPill) els.lessonProgressPill.textContent = "Step 3 / 3";
+}
+
+function resetMicButton() {
+  els.micBtn?.classList.remove("recording");
+  if (els.micBtn) els.micBtn.textContent = "🎤 Tap to Speak";
+}
+
+function startRealSpeechCheck() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition || !currentLesson) return false;
+
+  if (isListeningForSpeech) {
+    stopSpeechRecognition();
+    resetMicButton();
+    if (els.recordingStatus) els.recordingStatus.textContent = "Stopped listening.";
+    return true;
+  }
+
+  const recognition = new SpeechRecognition();
+  currentRecognition = recognition;
+  recognition.lang = "en-GB";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  recognition.continuous = false;
+
+  els.scoreCard?.classList.add("hidden");
+  lastPronunciationScore = null;
+  isListeningForSpeech = true;
+  if (els.recordingStatus) els.recordingStatus.textContent = "Listening... say the word clearly.";
+  els.micBtn?.classList.add("recording");
+  if (els.micBtn) els.micBtn.textContent = "🎙️ Listening...";
+  if (els.lessonProgressPill) els.lessonProgressPill.textContent = "Step 2 / 3";
+
+  recognition.onresult = (event) => {
+    const spokenText = event.results?.[0]?.[0]?.transcript || "";
+    const score = calculateSpeechMatchScore(spokenText, currentLesson.word);
+    showSpeechScore(spokenText, score);
+    isListeningForSpeech = false;
+    currentRecognition = null;
+    resetMicButton();
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Speech recognition error:", event.error);
+    isListeningForSpeech = false;
+    currentRecognition = null;
+    resetMicButton();
+    if (els.recordingStatus) els.recordingStatus.textContent = "Speech check did not work here. Falling back to normal recording.";
+    setTimeout(() => handleRecording(els.micBtn, els.recordingStatus, els.recordingPlayerWrap), 600);
+  };
+
+  recognition.onend = () => {
+    isListeningForSpeech = false;
+    currentRecognition = null;
+    resetMicButton();
+  };
+
+  try {
+    recognition.start();
+    return true;
+  } catch (error) {
+    console.error("Could not start speech recognition:", error);
+    isListeningForSpeech = false;
+    currentRecognition = null;
+    resetMicButton();
+    return false;
+  }
+}
+
+async function handleRecording(micButton, statusEl, wrapEl) {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    if (statusEl) statusEl.textContent = "Microphone is not supported on this browser.";
+    return;
+  }
+
+  if (!isRecording) {
+    try {
+      if (wrapEl) wrapEl.innerHTML = "";
+      els.scoreCard?.classList.add("hidden");
+      lastPronunciationScore = null;
+      currentStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      currentRecorder = new MediaRecorder(currentStream);
+      currentAudioChunks = [];
+
+      currentRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) currentAudioChunks.push(event.data);
+      };
+
+      currentRecorder.onstop = () => {
+        isRecording = false;
+        micButton?.classList.remove("recording");
+        if (micButton) micButton.textContent = "🎤 Tap to Speak";
+
+        const audioBlob = new Blob(currentAudioChunks, { type: "audio/webm" });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const player = document.createElement("audio");
+        player.controls = true;
+        player.src = audioUrl;
+
+        if (wrapEl) {
+          wrapEl.innerHTML = "";
+          wrapEl.appendChild(player);
+        }
+
+        stopCurrentStream();
+        if (statusEl) statusEl.textContent = "Recording saved. Speech checking is not supported here, but you can listen back and compare.";
+        if (els.lessonProgressPill) els.lessonProgressPill.textContent = "Playback ready";
+      };
+
+      currentRecorder.start();
+      isRecording = true;
+      micButton?.classList.add("recording");
+      if (micButton) micButton.textContent = "■ Stop Recording";
+      if (statusEl) statusEl.textContent = "Recording fallback... tap again to stop.";
+      if (els.lessonProgressPill) els.lessonProgressPill.textContent = "Recording";
+    } catch (error) {
+      if (statusEl) statusEl.textContent = "Microphone permission denied.";
+      console.error("Mic error:", error);
+      stopCurrentStream();
+    }
+  } else if (currentRecorder) {
+    currentRecorder.stop();
+  }
+}
 
 function updateXPUI() {
   const xp = getStoredXP();
   const currentBarXP = xp % XP_LEVEL_SIZE;
   const level = getLevelFromXP(xp);
-  els.xpText.textContent = `${xp} XP`;
-  els.xpTopText.textContent = `${xp} XP`;
-  els.levelNumber.textContent = level;
-  els.xpLevelText.textContent = `${currentBarXP} / ${XP_LEVEL_SIZE} to next level`;
-  els.xpFill.style.width = `${(currentBarXP / XP_LEVEL_SIZE) * 100}%`;
+  if (els.xpText) els.xpText.textContent = `${xp} XP`;
+  if (els.xpTopText) els.xpTopText.textContent = `${xp} XP`;
+  if (els.levelNumber) els.levelNumber.textContent = level;
+  if (els.xpLevelText) els.xpLevelText.textContent = `${currentBarXP} / ${XP_LEVEL_SIZE} to next level`;
+  if (els.xpFill) els.xpFill.style.width = `${(currentBarXP / XP_LEVEL_SIZE) * 100}%`;
 }
 
-function updateStreakUI() { els.streakCount.textContent = getStoredStreak(); }
-function updateGemsUI() { els.gemsDisplay.textContent = getStoredGems(); els.freezeCountDisplay.textContent = getStoredFreezes(); }
+function updateStreakUI() {
+  if (els.streakCount) els.streakCount.textContent = getStoredStreak();
+}
+
+function updateGemsUI() {
+  if (els.gemsDisplay) els.gemsDisplay.textContent = getStoredGems();
+  if (els.freezeCountDisplay) els.freezeCountDisplay.textContent = getStoredFreezes();
+}
 
 function updateHomeStats() {
   const completeCount = getCompletedLessonCount();
   const unlockedAchievements = achievements.filter((achievement) => getAchievementUnlocked(achievement.id) || isAchievementComplete(achievement)).length;
-  els.homeLessonProgress.textContent = `${completeCount} / ${lessons.length} complete`;
-  els.homeAchievementProgress.textContent = `${unlockedAchievements} unlocked`;
+  if (els.homeLessonProgress) els.homeLessonProgress.textContent = `${completeCount} / ${lessons.length} complete`;
+  if (els.homeAchievementProgress) els.homeAchievementProgress.textContent = `${unlockedAchievements} unlocked`;
   const nextLesson = getNextLesson();
-  els.continueBtn.textContent = nextLesson ? `Continue: ${nextLesson.word}` : "All lessons complete";
-  els.dailyTipText.textContent = tips[new Date().getDate() % tips.length];
+  if (els.continueBtn) els.continueBtn.textContent = nextLesson ? `Continue: ${nextLesson.word}` : "All lessons complete";
+  if (els.dailyTipText) els.dailyTipText.textContent = tips[new Date().getDate() % tips.length];
 }
 
 function createPetMarkup(sizeClass = "profile-parrot") {
   const accessories = ["hat", "glasses", "bow", "scarf", "crown"];
   const itemMarkup = accessories.map((name) => `<div class="parrot-${name} ${hasAccessory(name) && isEquipped(name) ? "" : "hidden"}"></div>`).join("");
-
   return `
     <div class="css-parrot ${sizeClass} profile-pet-copy">
       <div class="parrot-head"></div><div class="parrot-body"></div><div class="parrot-wing"></div><div class="parrot-eye"></div><div class="parrot-beak"></div><div class="parrot-feet"></div>
@@ -224,17 +541,18 @@ function createPetMarkup(sizeClass = "profile-parrot") {
 }
 
 function updateProfileUI() {
+  if (!els.profilePetCard) return;
   const xp = getStoredXP();
   const completeCount = getCompletedLessonCount();
   const unlockedAchievements = achievements.filter((achievement) => getAchievementUnlocked(achievement.id) || isAchievementComplete(achievement)).length;
 
-  els.profileStreak.textContent = getStoredStreak();
-  els.profileFreezes.textContent = getStoredFreezes();
-  els.profileXP.textContent = xp;
-  els.profileGems.textContent = getStoredGems();
-  els.profileLessons.textContent = `${completeCount} / ${lessons.length}`;
-  els.profileAchievements.textContent = `${unlockedAchievements} / ${achievements.length}`;
-  els.profileLevel.textContent = getLevelFromXP(xp);
+  if (els.profileStreak) els.profileStreak.textContent = getStoredStreak();
+  if (els.profileFreezes) els.profileFreezes.textContent = getStoredFreezes();
+  if (els.profileXP) els.profileXP.textContent = xp;
+  if (els.profileGems) els.profileGems.textContent = getStoredGems();
+  if (els.profileLessons) els.profileLessons.textContent = `${completeCount} / ${lessons.length}`;
+  if (els.profileAchievements) els.profileAchievements.textContent = `${unlockedAchievements} / ${achievements.length}`;
+  if (els.profileLevel) els.profileLevel.textContent = getLevelFromXP(xp);
 
   if (!getPetCreated()) {
     els.profilePetCard.innerHTML = `
@@ -245,19 +563,15 @@ function updateProfileUI() {
       <p>Your profile avatar will become the Roblingo pet you create in the Pet page.</p>
       <button class="daily-btn" id="profileMakePetBtn" type="button">Make Roblingo</button>
     `;
-    $("profileMakePetBtn")?.addEventListener("click", () => showPage("builderPage"));
+    addClick($("profileMakePetBtn"), () => showPage("builderPage"));
   } else {
-    els.profilePetCard.innerHTML = `
-      ${createPetMarkup()}
-      <h3>Your Roblingo</h3>
-      <p>This is your custom profile pet. Change it anytime in the Pet page.</p>
-    `;
+    els.profilePetCard.innerHTML = `${createPetMarkup()}<h3>Your Roblingo</h3><p>This is your custom profile pet. Change it anytime in the Pet page.</p>`;
   }
-
   applySavedColourToAllParrots();
 }
 
 function renderHelp() {
+  if (!els.helpList) return;
   els.helpList.innerHTML = "";
   helpItems.forEach((item) => {
     const card = document.createElement("div");
@@ -277,10 +591,8 @@ function createLessonNode(lesson) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "lesson-node";
-
   const complete = isLessonComplete(lesson.id);
   const unlocked = isLessonUnlocked(lesson.id);
-
   if (!unlocked) {
     button.classList.add("locked");
     button.disabled = true;
@@ -289,36 +601,20 @@ function createLessonNode(lesson) {
   } else {
     button.classList.add("unlocked");
   }
-
-  button.innerHTML = `
-    <span class="node-circle">${complete ? "✓" : unlocked ? lesson.id : "🔒"}</span>
-    <span class="lesson-info">
-      <strong>${lesson.word}</strong>
-      <p>${getLessonSubtitle(lesson)}</p>
-    </span>
-  `;
-
+  button.innerHTML = `<span class="node-circle">${complete ? "✓" : unlocked ? lesson.id : "🔒"}</span><span class="lesson-info"><strong>${lesson.word}</strong><p>${getLessonSubtitle(lesson)}</p></span>`;
   if (unlocked) button.addEventListener("click", () => openLesson(lesson.id));
   return button;
 }
 
 function renderLessons() {
+  if (!els.lessonList) return;
   els.lessonList.innerHTML = "";
   sections.forEach((section) => {
     const wrapper = document.createElement("section");
     wrapper.className = "path-section";
     const completedInSection = section.lessonIds.filter((id) => isLessonComplete(id)).length;
     const progressPercent = (completedInSection / section.lessonIds.length) * 100;
-
-    wrapper.innerHTML = `
-      <div class="path-section-head">
-        <h3>${section.title}</h3>
-        <p>${section.subtitle}</p>
-        <div class="path-progress"><div class="path-progress-fill" style="width:${progressPercent}%"></div></div>
-      </div>
-      <div class="path-nodes"></div>
-    `;
-
+    wrapper.innerHTML = `<div class="path-section-head"><h3>${section.title}</h3><p>${section.subtitle}</p><div class="path-progress"><div class="path-progress-fill" style="width:${progressPercent}%"></div></div></div><div class="path-nodes"></div>`;
     const nodeWrap = wrapper.querySelector(".path-nodes");
     section.lessonIds.forEach((id) => {
       const lesson = lessons.find((item) => item.id === id);
@@ -338,15 +634,13 @@ function isAchievementComplete(achievement) {
 }
 
 function renderAchievements() {
+  if (!els.achievementList) return;
   els.achievementList.innerHTML = "";
   achievements.forEach((achievement) => {
     const unlocked = getAchievementUnlocked(achievement.id) || isAchievementComplete(achievement);
     const card = document.createElement("div");
     card.className = `achievement-card ${unlocked ? "unlocked" : "locked"}`;
-    card.innerHTML = `
-      <div class="achievement-icon">${unlocked ? achievement.icon : "🔒"}</div>
-      <div><h3>${achievement.title}</h3><p>${achievement.text}</p></div>
-    `;
+    card.innerHTML = `<div class="achievement-icon">${unlocked ? achievement.icon : "🔒"}</div><div><h3>${achievement.title}</h3><p>${achievement.text}</p></div>`;
     els.achievementList.appendChild(card);
   });
 }
@@ -363,8 +657,9 @@ function checkAchievements() {
 }
 
 function showAchievementPopup(achievement) {
-  els.achievementPopupTitle.textContent = achievement.title;
-  els.achievementPopupText.textContent = achievement.text;
+  if (!els.achievementOverlay) return;
+  if (els.achievementPopupTitle) els.achievementPopupTitle.textContent = achievement.title;
+  if (els.achievementPopupText) els.achievementPopupText.textContent = achievement.text;
   els.achievementOverlay.classList.add("show");
   setTimeout(() => els.achievementOverlay.classList.remove("show"), 1800);
 }
@@ -372,16 +667,14 @@ function showAchievementPopup(achievement) {
 function saveLessonCompletion(lessonNumber) {
   const today = new Date();
   const todayKey = today.toDateString();
-
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
   const yesterdayKey = yesterday.toDateString();
-
   const lastCompleted = localStorage.getItem("roblingo_last_completed");
   let streak = getStoredStreak();
 
   if (lastCompleted === todayKey) {
-    // already counted today
+    // Already counted today.
   } else if (lastCompleted === yesterdayKey) {
     streak += 1;
   } else {
@@ -403,16 +696,15 @@ function saveLessonCompletion(lessonNumber) {
     setLocalNumber("roblingo_gems", getStoredGems() + GEMS_PER_LESSON);
     localStorage.setItem(`roblingo_lesson_${lessonNumber}_xp_awarded`, "true");
   }
-
   updateAllUI();
   checkAchievements();
 }
 
 function showSuccess(title, text) {
-  els.successTitle.textContent = title;
-  els.successText.textContent = text;
+  if (!els.successOverlay) return;
+  if (els.successTitle) els.successTitle.textContent = title;
+  if (els.successText) els.successText.textContent = text;
   els.successOverlay.classList.add("show");
-
   setTimeout(() => {
     els.successOverlay.classList.remove("show");
     showOnlyScreen(screens.app);
@@ -423,6 +715,7 @@ function showSuccess(title, text) {
 }
 
 function markButtonPlaying(button, audio) {
+  if (!button) return;
   button.classList.add("playing");
   const clear = () => {
     button.classList.remove("playing");
@@ -435,149 +728,80 @@ function markButtonPlaying(button, audio) {
 
 function playAudio(path, statusEl, label, button) {
   if (!path) {
-    statusEl.textContent = "Audio not added yet.";
+    if (statusEl) statusEl.textContent = "Audio not added yet.";
     return;
   }
-
   const audio = new Audio(path);
-  audio.onloadeddata = () => { statusEl.textContent = `Playing ${label}...`; };
+  audio.onloadeddata = () => { if (statusEl) statusEl.textContent = `Playing ${label}...`; };
   audio.onerror = () => {
-    statusEl.textContent = `Could not load ${path}`;
+    if (statusEl) statusEl.textContent = `Could not load ${path}`;
     console.error("Could not load:", path);
   };
-  audio.onended = () => { statusEl.textContent = `${label} finished.`; };
-
+  audio.onended = () => { if (statusEl) statusEl.textContent = `${label} finished.`; };
   audio.play().then(() => {
-    if (button) markButtonPlaying(button, audio);
+    markButtonPlaying(button, audio);
     animateElement(els.homeParrot, "wiggle");
   }).catch((error) => {
-    statusEl.textContent = `Could not play ${path}`;
+    if (statusEl) statusEl.textContent = `Could not play ${path}`;
     console.error("Could not play:", path, error);
   });
 }
 
-function createFakePronunciationScore() {
-  return Math.min(Math.floor(Math.random() * 21) + 76, 99);
-}
-
-function getFeedbackForScore(score) {
-  if (score >= 94) return "Excellent rhythm. That sounded very natural.";
-  if (score >= 88) return "Great work. Try making the ending slightly clearer.";
-  if (score >= 82) return "Good pronunciation. Listen once more and copy the timing.";
-  return "Nice attempt. Try again slowly, then say it naturally.";
-}
-
-function showCheckingThenResult(statusEl) {
-  statusEl.textContent = "Checking pronunciation...";
-  setTimeout(() => {
-    lastPronunciationScore = createFakePronunciationScore();
-    els.scoreCircle.textContent = `${lastPronunciationScore}%`;
-    els.scoreTitle.textContent = "Pronunciation score";
-    els.scoreFeedback.textContent = getFeedbackForScore(lastPronunciationScore);
-    els.scoreCard.classList.remove("hidden");
-    statusEl.textContent = "Score ready. Complete the lesson when you are happy.";
-    els.lessonProgressPill.textContent = "Step 3 / 3";
-  }, 1200);
-}
-
-async function handleRecording(micButton, statusEl, wrapEl) {
-  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-    statusEl.textContent = "Microphone is not supported on this browser.";
-    return;
-  }
-
-  if (!isRecording) {
-    try {
-      wrapEl.innerHTML = "";
-      els.scoreCard.classList.add("hidden");
-      lastPronunciationScore = null;
-      currentStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      currentRecorder = new MediaRecorder(currentStream);
-      currentAudioChunks = [];
-
-      currentRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) currentAudioChunks.push(event.data);
-      };
-
-      currentRecorder.onstop = () => {
-        isRecording = false;
-        micButton.classList.remove("recording");
-        micButton.textContent = "🎤 Tap to Speak";
-        const audioBlob = new Blob(currentAudioChunks, { type: "audio/webm" });
-        const audioUrl = URL.createObjectURL(audioBlob);
-        const player = document.createElement("audio");
-        player.controls = true;
-        player.src = audioUrl;
-        wrapEl.innerHTML = "";
-        wrapEl.appendChild(player);
-        stopCurrentStream();
-        showCheckingThenResult(statusEl);
-      };
-
-      currentRecorder.start();
-      isRecording = true;
-      micButton.classList.add("recording");
-      micButton.textContent = "■ Stop Recording";
-      statusEl.textContent = "Recording...";
-      els.lessonProgressPill.textContent = "Step 2 / 3";
-    } catch (error) {
-      statusEl.textContent = "Microphone permission denied.";
-      console.error("Mic error:", error);
-      stopCurrentStream();
-    }
-  } else if (currentRecorder) {
-    currentRecorder.stop();
-  }
-}
-
 function updateLessonButtonsForMode(lesson) {
+  if (!els.casualBtn || !els.politeBtn) return;
   const casualTitle = els.casualBtn.querySelector(".audio-title");
   const politeTitle = els.politeBtn.querySelector(".audio-title");
 
   if (lesson.mode === "dual") {
     els.casualBtn.style.display = "flex";
     els.politeBtn.style.display = "flex";
-    casualTitle.textContent = "🔊 Casual";
-    politeTitle.textContent = "🔊 Polite";
-    els.casualNote.textContent = lesson.casualLabel || lesson.word.toLowerCase();
-    els.politeNote.textContent = lesson.politeLabel || lesson.word;
+    if (casualTitle) casualTitle.textContent = "🔊 Casual";
+    if (politeTitle) politeTitle.textContent = "🔊 Polite";
+    if (els.casualNote) els.casualNote.textContent = lesson.casualLabel || lesson.word.toLowerCase();
+    if (els.politeNote) els.politeNote.textContent = lesson.politeLabel || lesson.word;
     return;
   }
 
   els.casualBtn.style.display = "flex";
   els.politeBtn.style.display = "none";
-  casualTitle.textContent = "🔊 Listen";
-  els.casualNote.textContent = lesson.audioLabel || lesson.word.toLowerCase();
-  els.politeNote.textContent = "";
+  if (casualTitle) casualTitle.textContent = "🔊 Listen";
+  if (els.casualNote) els.casualNote.textContent = lesson.audioLabel || lesson.word.toLowerCase();
+  if (els.politeNote) els.politeNote.textContent = "";
 }
 
 function getLessonInstructionText(lesson) {
   return lesson.mode === "dual"
-    ? "Listen to both pronunciations, record yourself, then check your score."
-    : "Listen to the pronunciation, record yourself, then check your score.";
+    ? "Listen to both pronunciations, then tap the mic. Roblingo will try to check what you say."
+    : "Listen to the pronunciation, then tap the mic. Roblingo will try to check what you say.";
 }
 
 function openLesson(lessonId) {
   const lesson = lessons.find((item) => item.id === lessonId);
   if (!lesson) return;
-
+  stopSpeechRecognition();
+  stopCurrentStream();
   currentLesson = lesson;
   lastPronunciationScore = null;
 
-  els.lessonTag.textContent = lesson.title;
-  els.mainWord.textContent = lesson.word;
-  els.definitionText.textContent = lesson.definition;
-  els.lessonSubtext.textContent = getLessonInstructionText(lesson);
-  els.lessonProgressPill.textContent = "Step 1 / 3";
+  if (els.lessonTag) els.lessonTag.textContent = lesson.title;
+  if (els.mainWord) els.mainWord.textContent = lesson.word;
+  if (els.definitionText) els.definitionText.textContent = lesson.definition;
+  if (els.lessonSubtext) els.lessonSubtext.textContent = getLessonInstructionText(lesson);
+  if (els.lessonProgressPill) els.lessonProgressPill.textContent = "Step 1 / 3";
   updateLessonButtonsForMode(lesson);
-  els.recordingStatus.textContent = "Tap listen, then record yourself.";
-  els.recordingPlayerWrap.innerHTML = "";
-  els.scoreCard.classList.add("hidden");
-  els.scoreCircle.textContent = "0%";
-  els.scoreFeedback.textContent = "Record yourself to get feedback.";
-  els.micBtn.classList.remove("recording");
-  els.micBtn.textContent = "🎤 Tap to Speak";
 
+  if (els.recordingStatus) {
+    els.recordingStatus.textContent = isSpeechRecognitionSupported()
+      ? "Tap listen, then tap the mic and say the word clearly."
+      : "Speech check is not supported here. The mic will record playback instead.";
+  }
+
+  if (els.recordingPlayerWrap) els.recordingPlayerWrap.innerHTML = "";
+  els.scoreCard?.classList.add("hidden");
+  if (els.scoreCircle) els.scoreCircle.textContent = "0%";
+  if (els.scoreTitle) els.scoreTitle.textContent = "Speech match score";
+  if (els.scoreFeedback) els.scoreFeedback.textContent = "Tap the mic and say the word to get checked.";
+  resetMicButton();
   showOnlyScreen(screens.lesson);
 }
 
@@ -628,17 +852,13 @@ function getColourMap() {
 }
 
 function applyPetColour(colour) {
-  const colourMap = getColourMap();
-  const selected = colourMap[colour] || colourMap.green;
+  const selected = getColourMap()[colour] || getColourMap().green;
   document.querySelectorAll(".css-parrot").forEach((parrot) => {
     parrot.style.setProperty("--pet-main", selected.main);
     parrot.style.setProperty("--pet-wing", selected.wing);
     parrot.style.setProperty("--pet-belly", selected.belly);
   });
-
-  colourButtons.forEach((btn) => {
-    btn.classList.toggle("active-colour", btn.dataset.colour === colour);
-  });
+  colourButtons.forEach((btn) => btn.classList.toggle("active-colour", btn.dataset.colour === colour));
 }
 
 function applySavedColourToAllParrots() {
@@ -678,19 +898,24 @@ function updatePetUI() {
   const scarfState = applyAccessoryVisibility("scarf", els.petScarf, els.homePetScarf);
   const crownState = applyAccessoryVisibility("crown", els.petCrown, els.homePetCrown);
 
-  els.hatOwnedText.textContent = hatState.owned ? (hatState.equipped ? "Equipped" : "Owned") : "Locked";
-  els.glassesOwnedText.textContent = glassesState.owned ? (glassesState.equipped ? "Equipped" : "Owned") : "Locked";
-  els.bowOwnedText.textContent = bowState.owned ? (bowState.equipped ? "Equipped" : "Owned") : "Locked";
-  els.scarfOwnedText.textContent = scarfState.owned ? (scarfState.equipped ? "Equipped" : "Owned") : "Locked";
-  els.crownOwnedText.textContent = crownState.owned ? (crownState.equipped ? "Equipped" : "Owned") : "Locked";
+  if (els.hatOwnedText) els.hatOwnedText.textContent = hatState.owned ? (hatState.equipped ? "Equipped" : "Owned") : "Locked";
+  if (els.glassesOwnedText) els.glassesOwnedText.textContent = glassesState.owned ? (glassesState.equipped ? "Equipped" : "Owned") : "Locked";
+  if (els.bowOwnedText) els.bowOwnedText.textContent = bowState.owned ? (bowState.equipped ? "Equipped" : "Owned") : "Locked";
+  if (els.scarfOwnedText) els.scarfOwnedText.textContent = scarfState.owned ? (scarfState.equipped ? "Equipped" : "Owned") : "Locked";
+  if (els.crownOwnedText) els.crownOwnedText.textContent = crownState.owned ? (crownState.equipped ? "Equipped" : "Owned") : "Locked";
 
-  els.unlockHatBtn.textContent = hatState.owned ? "Owned ✓" : "Unlock";
-  els.unlockGlassesBtn.textContent = glassesState.owned ? "Owned ✓" : "Unlock";
-  els.unlockBowBtn.textContent = bowState.owned ? "Owned ✓" : "Unlock";
-
-  els.unlockHatBtn.classList.toggle("owned", hatState.owned);
-  els.unlockGlassesBtn.classList.toggle("owned", glassesState.owned);
-  els.unlockBowBtn.classList.toggle("owned", bowState.owned);
+  if (els.unlockHatBtn) {
+    els.unlockHatBtn.textContent = hatState.owned ? "Owned ✓" : "Unlock";
+    els.unlockHatBtn.classList.toggle("owned", hatState.owned);
+  }
+  if (els.unlockGlassesBtn) {
+    els.unlockGlassesBtn.textContent = glassesState.owned ? "Owned ✓" : "Unlock";
+    els.unlockGlassesBtn.classList.toggle("owned", glassesState.owned);
+  }
+  if (els.unlockBowBtn) {
+    els.unlockBowBtn.textContent = bowState.owned ? "Owned ✓" : "Unlock";
+    els.unlockBowBtn.classList.toggle("owned", bowState.owned);
+  }
 
   updateAccessoryButton("hat", els.equipHatBtn, els.hatOwnedText);
   updateAccessoryButton("glasses", els.equipGlassesBtn, els.glassesOwnedText);
@@ -754,7 +979,6 @@ function toggleEquip(name) {
 
 function seedStartingProgress() {
   if (localStorage.getItem("roblingo_seeded_progress_v5_safe") === "true") return;
-
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
 
@@ -764,7 +988,6 @@ function seedStartingProgress() {
   if (!localStorage.getItem("roblingo_gems")) localStorage.setItem("roblingo_gems", "110");
   if (!localStorage.getItem("roblingo_freezes")) localStorage.setItem("roblingo_freezes", "0");
   if (!localStorage.getItem("roblingo_pet_colour")) localStorage.setItem("roblingo_pet_colour", "green");
-
   if (!localStorage.getItem("roblingo_lesson_1_complete")) localStorage.setItem("roblingo_lesson_1_complete", "true");
   if (!localStorage.getItem("roblingo_lesson_2_complete")) localStorage.setItem("roblingo_lesson_2_complete", "true");
   if (!localStorage.getItem("roblingo_lesson_1_xp_awarded")) localStorage.setItem("roblingo_lesson_1_xp_awarded", "true");
@@ -785,9 +1008,14 @@ function updateAllUI() {
 }
 
 function bindEvents() {
-  els.backBtn.addEventListener("click", () => { showOnlyScreen(screens.app); showPage("lessonsPage"); });
+  addClick(els.backBtn, () => {
+    stopSpeechRecognition();
+    stopCurrentStream();
+    showOnlyScreen(screens.app);
+    showPage("lessonsPage");
+  });
 
-  els.casualBtn.addEventListener("click", () => {
+  addClick(els.casualBtn, () => {
     if (!currentLesson) return;
     if (currentLesson.mode === "dual") {
       playAudio(currentLesson.casualAudio, els.recordingStatus, "casual pronunciation", els.casualBtn);
@@ -796,14 +1024,29 @@ function bindEvents() {
     playAudio(currentLesson.audio, els.recordingStatus, "pronunciation", els.casualBtn);
   });
 
-  els.politeBtn.addEventListener("click", () => {
+  addClick(els.politeBtn, () => {
     if (!currentLesson || currentLesson.mode !== "dual") return;
     playAudio(currentLesson.politeAudio, els.recordingStatus, "polite pronunciation", els.politeBtn);
   });
 
-  els.micBtn.addEventListener("click", () => handleRecording(els.micBtn, els.recordingStatus, els.recordingPlayerWrap));
+  addClick(els.micBtn, () => {
+    if (isRecording) {
+      handleRecording(els.micBtn, els.recordingStatus, els.recordingPlayerWrap);
+      return;
+    }
 
-  els.completeBtn.addEventListener("click", () => {
+    if (isSpeechRecognitionSupported()) {
+      const started = startRealSpeechCheck();
+      if (started) return;
+    }
+
+    if (els.recordingStatus) {
+      els.recordingStatus.textContent = "Speech checking is not supported here. Recording instead so you can listen back.";
+    }
+    handleRecording(els.micBtn, els.recordingStatus, els.recordingPlayerWrap);
+  });
+
+  addClick(els.completeBtn, () => {
     if (!currentLesson) return;
     saveLessonCompletion(currentLesson.id);
     const scoreText = lastPronunciationScore ? ` • ${lastPronunciationScore}%` : "";
@@ -811,40 +1054,38 @@ function bindEvents() {
   });
 
   navButtons.forEach((button) => button.addEventListener("click", () => showPage(button.dataset.page)));
-
-  els.startBtn.addEventListener("click", () => {
+  addClick(els.startBtn, () => {
     localStorage.setItem("roblingo_started", "true");
     showOnlyScreen(screens.app);
     showPage("homePage");
   });
-
-  els.continueBtn.addEventListener("click", () => {
+  addClick(els.continueBtn, () => {
     const nextLesson = getNextLesson();
     if (nextLesson) openLesson(nextLesson.id);
   });
 
-  els.homeLessonsBtn.addEventListener("click", () => showPage("lessonsPage"));
-  els.homeAchievementsBtn.addEventListener("click", () => showPage("achievementsPage"));
-  els.homeProfileBtn.addEventListener("click", () => showPage("profilePage"));
-  els.homePetBtn.addEventListener("click", () => showPage("builderPage"));
-  els.homeShopBtn.addEventListener("click", () => showPage("shopPage"));
-  els.homeHelpBtn.addEventListener("click", () => showPage("updatesPage"));
+  addClick(els.homeLessonsBtn, () => showPage("lessonsPage"));
+  addClick(els.homeAchievementsBtn, () => showPage("achievementsPage"));
+  addClick(els.homeProfileBtn, () => showPage("profilePage"));
+  addClick(els.homePetBtn, () => showPage("builderPage"));
+  addClick(els.homeShopBtn, () => showPage("shopPage"));
+  addClick(els.homeHelpBtn, () => showPage("updatesPage"));
 
-  els.buyFreezeBtn.addEventListener("click", buyFreeze);
-  els.buyCrownBtn.addEventListener("click", () => buyAccessory("crown", 120));
-  els.buyScarfBtn.addEventListener("click", () => buyAccessory("scarf", 70));
+  addClick(els.buyFreezeBtn, buyFreeze);
+  addClick(els.buyCrownBtn, () => buyAccessory("crown", 120));
+  addClick(els.buyScarfBtn, () => buyAccessory("scarf", 70));
+  addClick(els.unlockHatBtn, unlockHat);
+  addClick(els.unlockGlassesBtn, unlockGlasses);
+  addClick(els.unlockBowBtn, unlockBow);
+  addClick(els.equipHatBtn, () => toggleEquip("hat"));
+  addClick(els.equipGlassesBtn, () => toggleEquip("glasses"));
+  addClick(els.equipBowBtn, () => toggleEquip("bow"));
+  addClick(els.equipScarfBtn, () => toggleEquip("scarf"));
+  addClick(els.equipCrownBtn, () => toggleEquip("crown"));
 
-  els.unlockHatBtn.addEventListener("click", unlockHat);
-  els.unlockGlassesBtn.addEventListener("click", unlockGlasses);
-  els.unlockBowBtn.addEventListener("click", unlockBow);
-
-  els.equipHatBtn.addEventListener("click", () => toggleEquip("hat"));
-  els.equipGlassesBtn.addEventListener("click", () => toggleEquip("glasses"));
-  els.equipBowBtn.addEventListener("click", () => toggleEquip("bow"));
-  els.equipScarfBtn.addEventListener("click", () => toggleEquip("scarf"));
-  els.equipCrownBtn.addEventListener("click", () => toggleEquip("crown"));
-
-  colourButtons.forEach((button) => button.addEventListener("click", () => updatePetColour(button.dataset.colour)));
+  colourButtons.forEach((button) => {
+    button.addEventListener("click", () => updatePetColour(button.dataset.colour));
+  });
 }
 
 function init() {
